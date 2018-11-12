@@ -1,5 +1,5 @@
 <h1>Users ALL OF THEM</h1>
 
 <% @users.each do |u| %>
-  <p><%= u.name %></p>
+  <p><%= link_to u.name, u %></p>
 <% end %>

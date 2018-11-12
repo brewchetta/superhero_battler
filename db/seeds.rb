@@ -47,4 +47,19 @@ t2.heros << h4
 t3.heros << h5
 t3.heros << h6
 
+puts "Discovering a hero's true power ..."
+p1 = Power.create(name: "Telekinesis", description: "Move things with your brain.")
+p2 = Power.create(name: "Spider Senses", description: "Everything smells like a spider")
+p3 = Power.create(name: "Flight", description: "Can book a flight")
+p4 = Power.create(name: "Super Strength", description: "Like normal strength except a lil more")
+p5 = Power.create(name: "Invulnerable", description: "The opposite of vulnerable")
+p6 = Power.create(name: "Impossible to Distract", description: "So much focus...")
+
+Hero.all.sample.powers << p1
+Hero.all.sample.powers << p2
+Hero.all.sample.powers << p3
+Hero.all.sample.powers << p4
+Hero.all.sample.powers << p5
+Hero.all.sample.powers << p6
+
 puts "Ready to save / destroy the world!"

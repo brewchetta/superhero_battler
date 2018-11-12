@@ -1,0 +1,9 @@
+<h1><%= @power.name %></h1>
+
+<p><%= @power.description %></p>
+
+<ul>
+  <% @heros.each do |h| %>
+    <li><%= h.name %></li>
+  <% end %>
+</ul>
