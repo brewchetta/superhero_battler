@@ -1,7 +1,7 @@
 module ApiCommunicator
 
   BASE_URL = "https://comicvine.gamespot.com/api"
-  API_KEY = "aeedf98edd4d5d6c5bbdd34f7713483c55611cfb"
+  API_KEY = "shhhh"
 
   def character_search(name)
     new_hero_hash = {}
