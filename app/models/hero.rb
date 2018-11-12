@@ -4,4 +4,6 @@ class Hero < ApplicationRecord
 
   has_many :heros_powers
   has_many :powers, through: :heros_powers
+
+  extend ApiCommunicator
 end

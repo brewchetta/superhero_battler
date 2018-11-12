@@ -21,6 +21,15 @@ class HerosController < ApplicationController
     redirect_to @hero
   end
 
+  # TODO -
+  # get search results to display properly
+  #be able to create a hero from api
+  #add nicely displayed hero to team
+
+  def search
+    @results = Hero.character_search(params[:name])
+    redirect_to heros_path
+  end
 
   def edit
   end
