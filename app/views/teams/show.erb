@@ -1,0 +1,7 @@
+<h1><%= @team.roster_name %></h1>
+
+<p><%= @team.user.name %>'s team</p>
+
+<% @heros.each do |h| %>
+  <p><%= h.name %></p>
+<% end %>
