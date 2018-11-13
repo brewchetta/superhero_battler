@@ -1,7 +1,8 @@
 <h1><%= @team.roster_name %></h1>
-
-<p><%= @team.user.name %>'s team</p>
+<p style="font-size: 0.6em"><%= link_to "Edit Team", edit_user_team_path(@user,@team) %></p>
 
 <% @heros.each do |h| %>
   <p><%= h.name %></p>
 <% end %>
+
+<%= link_to "Back to #{@user.name}", user_path(@user) %>

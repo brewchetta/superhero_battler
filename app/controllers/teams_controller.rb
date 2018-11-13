@@ -23,7 +23,6 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     @user.teams << @team
     @team.save
-    byebug
     redirect_to user_team_path(@user, @team)
   end
 
@@ -33,10 +32,16 @@ class TeamsController < ApplicationController
 
 
   def update
+    @team.update(team_params)
+
+    redirect_to user_team_path(@user, @team)
   end
 
 
   def destroy
+    @team.destroy
+
+    redirect_to user_path(@user)
   end
 
   private

@@ -1,7 +1,8 @@
 <h1><%= @user.name %></h1>
+<p style="font-size: 0.7em"><%= link_to "Edit #{@user.name}", edit_user_path %></p>
 
 <% @teams.each do |t| %>
-  <p><%= t.roster_name %></p>
+  <p><%= link_to t.roster_name, user_team_path(@user, t) %> | <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
 <% end %><br>
 
 <p><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
