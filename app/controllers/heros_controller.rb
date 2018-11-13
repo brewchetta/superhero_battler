@@ -44,15 +44,6 @@ class HerosController < ApplicationController
     flash[:powers] = []
     @hero = Hero.new_from_api(params[:api_id])
     redirect_to @hero
-
-    #create a hero
-    #do something with the powers
-    # @hero_hash[:powers].each do
-    #   Find_by(name: )
-    # end
-    #flash_hash carries single character with Rails model attr
-    #Hero is created from flash data
-    #redirect to that new hero show page
   end
 
   def edit

@@ -3,11 +3,13 @@
 <!-- TODO Add API stuff -->
 <% @heros.each do |h| %>
   <h3><%= link_to h.name, h %></h3>
+  <%= image_tag h.image_url %>
 <% end %>
 
 <% if flash[:array] %>
   <% flash[:array].each do |result| %>
   <%= result["name"] %> <br>
+  <%= image_tag result["image_url"] %>
     <%= form_tag '/heros/create_from_api', method: :get do %>
       <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
       <%= submit_tag %>

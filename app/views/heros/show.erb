@@ -1,4 +1,18 @@
-<h1><%= @hero.name %></h1>
+<h1><%= @hero.name %></h1> <br>
+<div>
+  <%= image_tag @hero.image_url %><br>
+</div> <br>
+<div>
+  <p><%= @hero.description %><br></p>
+</div>
+<div>
+  <h4> Behold the Power of <%= "#{@hero.name}" %></h4>
+    <% @hero.powers.each do |power| %>
+  <ul>
+    <li><%= power.name %> </li>
+  </ul>
+</div>
+<% end %>
 
 <!-- TODO Add API stuff -->
 
