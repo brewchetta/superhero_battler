@@ -18,6 +18,7 @@ class HerosController < ApplicationController
 
   def create
     @hero = Hero.create(hero_params)
+    byebug
     redirect_to @hero
   end
 
