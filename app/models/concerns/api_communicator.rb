@@ -24,21 +24,26 @@ module ApiCommunicator
 
   def new_from_api(api_id)
     new_hero_hash = {}
-    # new_hero_hash[:powers] = []
     query = "#{BASE_URL}/character/4005-#{api_id}/?api_key=#{API_KEY}&format=json&field_list=name,powers,id,image,deck,powers"
     response_thing = RestClient.get(query)
     parsed_response = JSON.parse(response_thing)
-    # parsed_response["results"]["powers"].each {|power| flash[:powers] << power["name"]}
     new_hero_hash[:api_id] = parsed_response["results"]["id"]
     new_hero_hash[:image_url] = parsed_response["results"]["image"]["screen_url"]
     new_hero_hash[:description] = parsed_response["results"]["deck"]
     new_hero_hash[:name] = parsed_response["results"]["name"]
     created_hero = Hero.create(new_hero_hash)
+    # new_hero_hash[:powers] = []
+    # parsed_response["results"]["powers"].each {|power| new_hero_hash[:powers] << power["name"]}
     # new_hero_hash[:powers].each {|power| created_hero.powers << power}
     created_hero
   end
 
 end
+
+#new_from_api creates a hero
+#we also want it to associate powers from the API request to the hero
+#our powers table is not set up to handle this - YET ;)
+#Once that happens, we need a AT LEAST a find_by(name:) as our hero.powers setter so that we can associate correctly
 
 
 #this new page should include a find or create with preseeded data.
