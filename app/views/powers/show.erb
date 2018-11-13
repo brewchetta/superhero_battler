@@ -4,6 +4,6 @@
 
 <ul>
   <% @heros.each do |h| %>
-    <li><%= h.name %></li>
+    <li><%=link_to h.name, h %></li>
   <% end %>
 </ul>

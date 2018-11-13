@@ -3,6 +3,7 @@
 <!-- TODO Add API stuff -->
 <% @heros.each do |h| %>
   <h3><%= link_to h.name, h %></h3>
+  <%= image_tag h.image_url %>
 <% end %>
 
 <% if flash[:array] %>
