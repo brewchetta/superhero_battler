@@ -1,11 +1,24 @@
 class TeamsController < ApplicationController
-  before_action :find_team, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_team, only: [:show, :edit, :update, :destroy, :add_hero]
   # Now that team is nested, we need to find the user for most actions
   before_action :find_user
 
   def index
     @teams = Team.all
+  end
+
+  def add_hero
+    @hero = Hero.find_by(id: params[:team][:hero_id])
+    if !@team.heros.include?(@hero)
+      @team.heros << @hero
+      redirect_to edit_user_team_path(@user, @team)
+    else
+      flash[:errors] = []
+      @team.errors.add(:hero_id, "cannot have duplicate heroes on the same team")
+      flash[:errors] << @team.errors.full_messages[0]
+
+      redirect_to edit_user_team_path(@user, @team)
+    end
   end
 
 
@@ -32,9 +45,17 @@ class TeamsController < ApplicationController
 
 
   def update
+    byebug
     @team.update(team_params)
+    byebug
+    if @team.valid?
+      redirect_to user_team_path(@user, @team)
+    else
+      flash[:errors] = []
+      flash[:errors] << @team.errors.full_messages
 
-    redirect_to user_team_path(@user, @team)
+      redirect_to edit_user_team_path(@user, @team)
+    end
   end
 
 
@@ -47,7 +68,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:roster_name, :user_id)
+    params.require(:team).permit(:roster_name, :user_id, :hero_id)
   end
 
   def find_team
