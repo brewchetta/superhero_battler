@@ -3,6 +3,12 @@
 <%= form_for :team, url: user_team_path, method: :patch do |f| %>
   <%= f.label :roster_name %>
   <%= f.text_field :roster_name %><br>
+  <%= f.label "Choose a Hero" %>
+  <%= collection_select :heros_teams, :hero_id, Hero.all, :id, :name %>
+  <%= collection_select :heros_teams, :hero_id, Hero.all, :id, :name %>
+  <%= collection_select :heros_teams, :hero_id, Hero.all, :id, :name %>
+  <%= collection_select :heros_teams, :hero_id, Hero.all, :id, :name %>
+  <%= collection_select :heros_teams, :hero_id, Hero.all, :id, :name %><br>
   <%= f.submit %>
 
 <% end %>
