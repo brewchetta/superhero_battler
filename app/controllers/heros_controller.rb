@@ -28,7 +28,30 @@ class HerosController < ApplicationController
 
   def search
     @results = Hero.character_search(params[:name])
+    flash[:array] = []
+    @results.each do |result|
+      flash[:array] << result
+    end
     redirect_to heros_path
+  end
+  #submit button from index hits here
+  #get request to api resource of 'character'
+  #calls a new method from ApiCommunicator
+  #request data stores in instance var
+
+  def add_hero_from_cv
+    flash[:powers] = []
+    @hero = Hero.new_from_api(params[:api_id])
+    redirect_to @hero
+
+    #create a hero
+    #do something with the powers
+    # @hero_hash[:powers].each do
+    #   Find_by(name: )
+    # end
+    #flash_hash carries single character with Rails model attr
+    #Hero is created from flash data
+    #redirect to that new hero show page
   end
 
   def edit
