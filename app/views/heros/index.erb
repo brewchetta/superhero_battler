@@ -5,8 +5,12 @@
   <h3><%= link_to h.name, h %></h3>
 <% end %>
 
-<%# if @results
-<%# @results.each do |result| %>
-<%=# result %>
-<%# end %>
-<% #end %>
+<% if flash[:array] %>
+  <% flash[:array].each do |result| %>
+  <%= result["name"] %> <br>
+    <%= form_tag '/heros/create_from_api', method: :get do %>
+      <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
+      <%= submit_tag %>
+    <% end %>
+  <% end %> <br>
+<% end %>

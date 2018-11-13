@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "/heros", to: "heros#search", as: "heros_search"
+  get "/heros/search", to: "heros#search", as: "heros_search"
+  get "/heros/create_from_api", to: "heros#add_hero_from_cv", as: "heros_search_create"
   resources :battles
   resources :powers
   resources :heros
