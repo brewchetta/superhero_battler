@@ -2,4 +2,6 @@
 
 <% @teams.each do |t| %>
   <p><%= t.roster_name %></p>
-<% end %>
+<% end %><br>
+
+<p><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
