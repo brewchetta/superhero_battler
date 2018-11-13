@@ -1,7 +1,7 @@
 <h1>Users ALL OF THEM</h1>
 
 <% @users.each do |u| %>
-  <p><%= link_to u.name, u %></p>
+  <p><%= link_to u.name, u %> | <%= link_to "Remove", user_path(u), method: :delete %></p>
 <% end %><br>
 
 <p><%= link_to "Join the Fight", new_user_path %></p>
