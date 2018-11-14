@@ -50,7 +50,7 @@ header > .h-right {
 }
 
 header > .h-right > * {
-  color: red;
+  color: white;
   display: inline-flex;
 }
 

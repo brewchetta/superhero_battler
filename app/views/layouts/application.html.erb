@@ -13,7 +13,7 @@
       <!-- Navbar -->
       <header>
         <div class="h-left">
-          <p><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
+          <p style="margin:0"><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
         </div>
 
         <!-- The login/logout space -->
@@ -33,7 +33,7 @@
 
             <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]) %>
             <p> | </p>
-            <a href="/sessions/logout">Logout</a>
+            <%= link_to "Logout", sessions_path, method: :delete %>
 
           <% end %>
         </div>
@@ -42,9 +42,9 @@
 
       <%= yield %>
 
-      <footer>
-        <!-- TODO footer goes here? -->
-      </footer>
+      <!-- <footer>
+        TODO footer goes here?
+      </footer> -->
 
     </div>
   </body>
