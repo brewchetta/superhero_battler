@@ -18,7 +18,8 @@ class Battle < ApplicationRecord
     @team2 = Team.find_by(id: self.team_id2)
   end
 
-  #currently only 1 player from team 1 is being fought
+  #TODO swap out puts methods so that actual return strings are produced.
+
   def fight
     @team1 = self.team1
     @team2 = self.team2
@@ -58,9 +59,3 @@ class Battle < ApplicationRecord
   end
 
 end
-
-
-#collects loser of fight and winner of fight
-#tallies each side's victories
-#displays a winning team
-#displays a message indicating both sides have kissed and made up.
