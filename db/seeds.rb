@@ -13,9 +13,9 @@ Power.all.each {|item| item.destroy}
 Battle.all.each {|item| item.destroy}
 
 puts "Creating new users ..."
-u1 = User.create(name:"Alex")
-u2 = User.create(name:"Chett")
-u3 = User.create(name:"Wangtron")
+u1 = User.create(name:"Alex", password: 'password')
+u2 = User.create(name:"Chett", password: 'password')
+u3 = User.create(name:"Wangtron", password: 'password')
 
 puts "Registering new teams ..."
 t1 = Team.new(roster_name: "Alex's Team")

@@ -32,13 +32,26 @@ header {
 }
 
 header > .h-left {
-  width: 49%;
+  width: 30%;
   text-align: left;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 header > .h-right {
   width: 49%;
   text-align: right;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+header > .h-right > * {
+  color: red;
+  display: inline-flex;
 }
 
 .h-left > p > a {
@@ -58,6 +71,12 @@ footer {
   background-color: black;
   position: sticky;
   bottom: 0;
+}
+
+.login-field {
+  max-height: 1.1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .main {
