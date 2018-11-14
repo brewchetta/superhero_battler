@@ -1,0 +1,6 @@
+<% @battles.each do |battle| %>
+  <section>
+    <h2><%= battle.name %></h2> <br>
+    <%= link_to "Fight these Heroes", "/battles/#{battle.id}/fight" %>
+  </section>
+<% end %>
