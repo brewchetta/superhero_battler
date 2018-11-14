@@ -12,9 +12,8 @@
 
 .user-item > a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 5em;
-  border-bottom: solid white 2px;
 }
 
 .user-item > a:hover {
@@ -24,4 +23,20 @@
 .user-item > .user-item-remove {
   font-size: 2em;
   border-bottom: none;
+}
+
+.user-team-list {
+  display: inline-block;
+  background: black;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.user-team-list > p > a {
+  color: white;
+  text-decoration: none;
+}
+
+.main {
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/009/963/699/large/callum-bater-comic-city-night.jpg?1521806579');
 }
