@@ -4,9 +4,9 @@ class Battle < ApplicationRecord
   attr_reader :score_hash
 
   def teams
-    array = []
-    array << Team.find_by(id: self.team_id1)
-    array << Team.find_by(id: self.team_id2)
+    teams = []
+    teams << Team.find_by(id: self.team_id1)
+    teams << Team.find_by(id: self.team_id2)
     array
   end
 

@@ -1,10 +1,10 @@
 class BattlesController < ApplicationController
-  before_action :find_battle, only: :show
+  before_action :find_battle, only: [:show, :edit, :update, :destroy]
 
   def show
-    @contender1 = Team.find_by(id: @battle.team_id1)
-    @contender2 = Team.find_by(id: @battle.team_id2)
-    @battle.name = "#{@contender1.roster_name} vs. #{@contender2.roster_name}"
+    @team1 = @battle.team1
+    @team2 = @battle.team2
+    @battle.name = "#{@team1.roster_name} vs. #{@team2.roster_name}"
   end
 
   #button on the show page which begins the fight
@@ -12,7 +12,9 @@ class BattlesController < ApplicationController
   #button hits controller action containing fight logic
   #redirects or renders a new view displaying winner
 
-
+  def index
+    @battles = Battle.all
+  end
 
 
 
