@@ -10,6 +10,10 @@ class Battle < ApplicationRecord
     array
   end
 
+  def score_hash=(hash)
+
+  end
+
   def team1
     @team1 = Team.find_by(id: self.team_id1)
   end
@@ -23,12 +27,21 @@ class Battle < ApplicationRecord
   def fight
     @team1 = self.team1
     @team2 = self.team2
-    team1_heroes = @team1.heros
-    team2_heroes = @team2.heros
-    @team1.heros.zip(@team2.heros).each do |duel|
+    @score_hash = {@team1 => {:winner => [], :loser => []}, @team2 => {:winner => [], :loser => []}}
+    team1_heroes = @team1.heros.shuffle
+    team2_heroes = @team2.heros.shuffle
+    team1_heroes.zip(team2_heroes).each do |duel|
       self.hero_fight(duel[0], duel[1])
+      if @winner1
+        @score_hash[@team1][:winner] << duel[0]
+      elsif @winner2
+        @score_hash[@team2][:winner] << duel[1]
+      else
+        @score_hash[@team1][:loser] << duel[0]
+        @score_hash[@team2][:loser] << duel[1]
+      end
     end
-    win_condition = score_hash[@team1] <=> score_hash[@team2]
+    win_condition = score_hash[@team1][:winner].size <=> score_hash[@team2][:winner].size
     if win_condition == 1
       puts "#{@team1.roster_name} is the winner and #{@team2.roster_name} said 'Good Game'"
     elsif win_condition == -1
@@ -37,11 +50,13 @@ class Battle < ApplicationRecord
       puts "The battle was a tie."
     end
     @score_hash
+    byebug
   end
 
+  #hash has four keys
+  #team1 winner team1 loser team 2  winner team 2 loser
 
   def hero_fight(hero1, hero2)
-    @score_hash = {@team1 => 0, @team2 => 0}
     score1 = hero1.powers.sample.score
     score2 = hero2.powers.sample.score
     boo = score1 <=> score2
@@ -49,14 +64,17 @@ class Battle < ApplicationRecord
       #the puts method above is only for testing
       when 1
         puts "#{hero1.name} beat #{hero2.name}"
-        @score_hash[@team1] += 1
+        @winner1 = hero1
       when -1
         puts "#{hero2.name} beat #{hero1.name}"
-        @score_hash[@team2] += 1
+        @winner2 = hero2
      else
         puts "#{hero1.name} tied with #{hero2.name}"
+        return nil
     end
-    @score_hash
+    @winner1 || @winner2
   end
 
 end
+
+#hero_fight needs to return a winner and a lp
