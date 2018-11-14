@@ -36,6 +36,7 @@ class Battle < ApplicationRecord
     else
       puts "The battle was a tie."
     end
+    @score_hash
   end
 
 

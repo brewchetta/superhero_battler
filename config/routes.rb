@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   patch "user/:user_id/teams/:id/add-hero", to: "teams#add_hero", as: "add_heros_team"
   get 'sessions/login', to: 'sessions#new', as: 'login'
   post 'sessions/login', to: 'sessions#create', as: 'sessions'
+  get '/battles/:id/fight', to: 'battles#team_fight', as: 'battle_fight'
 
   resources :battles
   resources :powers

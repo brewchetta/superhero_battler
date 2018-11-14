@@ -1,6 +1,7 @@
+
+
 <h1><%= @battle.name %></h1>
+<%= flash["winner"] if flash["winner"] %> <br>
 
-<h2><%= @team1.roster_name %> WON!</h2>
 
-<h4><%= @team2.roster_name %> LOST! MISERABLY!</h4>
-<%= @battle.fight %>
+<%= link_to "Fight these Heroes", battle_fight_path %>
