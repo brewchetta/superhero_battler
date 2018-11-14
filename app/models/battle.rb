@@ -1,5 +1,6 @@
 class Battle < ApplicationRecord
 
+  attr_accessor :team1, :team2
   attr_reader :score_hash
 
   def teams
@@ -19,24 +20,23 @@ class Battle < ApplicationRecord
 
   #currently only 1 player from team 1 is being fought
   def fight
-    # score_hash = {:team1 => 0, :team2 => 0}
-    team1 = self.team1
-    team2 = self.team2
-    team1_heroes = team1.heros
-    team2_heroes = team2.heros
-    team1_heroes.zip(team2_heroes).each do |duel|
+    @team1 = self.team1
+    @team2 = self.team2
+    team1_heroes = @team1.heros
+    team2_heroes = @team2.heros
+    @team1.heros.zip(@team2.heros).each do |duel|
       self.hero_fight(duel[0], duel[1])
-      byebug
     end
     win_condition = score_hash[@team1] <=> score_hash[@team2]
     if win_condition == 1
-      puts "#{@team1.roster_name} is the winner"
+      puts "#{@team1.roster_name} is the winner and #{@team2.roster_name} said 'Good Game'"
+    elsif win_condition == -1
+      puts "#{@team2.roster_name} is the winner and #{@team1.roster_name} said 'Good Game'"
     else
-      puts "#{@team2.roster_name} is the winner"
+      puts "The battle was a tie."
     end
   end
 
-  
 
   def hero_fight(hero1, hero2)
     @score_hash = {@team1 => 0, @team2 => 0}
