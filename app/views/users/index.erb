@@ -1,5 +1,5 @@
 <h1 class="title">Users ALL OF THEM</h1>
 
 <% @users.each do |u| %>
-  <div class="user-item"><%= link_to u.name, u %> <br> <%= link_to "Remove", user_path(u), method: :delete, class: "user-item-remove" %></div>
+  <div class="user-item"><%= link_to u.name, u %></div>
 <% end %><br>

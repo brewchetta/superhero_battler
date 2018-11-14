@@ -12,9 +12,8 @@
 
 .user-item > a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 5em;
-  border-bottom: solid white 2px;
 }
 
 .user-item > a:hover {
@@ -24,4 +23,16 @@
 .user-item > .user-item-remove {
   font-size: 2em;
   border-bottom: none;
+}
+
+.user-team-list {
+  display: inline-block;
+  background: black;
+  border-radius: 1em;
+  padding: 2em;
+}
+
+.user-team-list > p > a {
+  color: white;
+  text-decoration: none;
 }

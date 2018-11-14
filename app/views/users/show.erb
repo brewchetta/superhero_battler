@@ -1,8 +1,22 @@
-<h1><%= @user.name %></h1>
-<p style="font-size: 0.7em"><%= link_to "Edit #{@user.name}", edit_user_path %></p>
+<div class="link-box" style="min-width: 10em;">
+  <h1><%= @user.name %></h1>
+  <p style="font-size: 0.7em"><%= link_to "Edit #{@user.name}", edit_user_path %></p>
 
-<% @teams.each do |t| %>
-  <p><%= link_to t.roster_name, user_team_path(@user, t) %> | <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
-<% end %><br>
+  <div style="margin: 3em;">
 
-<p><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
+    <div class="user-team-list">
+      <% @teams.each do |t| %>
+        <p style="color:white"><%= link_to t.roster_name, user_team_path(@user, t) %>
+          <% if session[:user_id] %>
+          <% if session[:user_id] == @user.id  %>
+          | <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
+          <% end %>
+          <% end %>
+      <% end %><br>
+    </div>
+
+  </div>
+
+  <p><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
+
+</div>
