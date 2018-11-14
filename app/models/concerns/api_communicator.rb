@@ -39,7 +39,9 @@ module ApiCommunicator
       power_instance_array << hero_pow
     end
     power_instance_array.each {|power| created_hero.powers << power}
-    created_hero
+    if created_hero.powers = []
+      created_hero.powers << Power.find_by(name: "None")
+    end
   end
 
 end
