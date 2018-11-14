@@ -10,8 +10,34 @@
   <body>
     <div class="main">
 
+      <!-- Navbar -->
       <header>
-        <p><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
+        <div class="h-left">
+          <p><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
+        </div>
+
+        <!-- The login/logout space -->
+        <div class="h-right">
+          <% if !session[:user_id] %>
+
+            <%= form_tag sessions_path do %>
+              <p style='margin:0;'>Username:</p>
+              <%= text_field_tag :name, nil, class: 'login-field' %>
+              <p style='margin:0;'>Password:</p>
+              <%= password_field_tag :password, nil, class:'login-field' %>
+              <%= submit_tag "Sign In" %>
+
+            <% end %>
+
+          <% else %>
+
+            <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]) %>
+            <p> | </p>
+            <a href="/sessions/logout">Logout</a>
+
+          <% end %>
+        </div>
+
       </header><br>
 
       <%= yield %>

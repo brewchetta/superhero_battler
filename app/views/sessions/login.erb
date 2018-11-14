@@ -1,0 +1,11 @@
+<br> <div style="min-height: 100px; background: red; padding: 30px; display: inline-block; text-align: left;">
+
+  <%= form_tag sessions_path do %>
+    <%= label_tag "Username" %>
+    <%= text_field_tag :name %><br><br>
+    <%= label_tag "Password" %>
+    <%= password_field_tag :password %><br><br>
+    <%= submit_tag "Sign In" %>
+  <% end %>
+
+</div>
