@@ -12,9 +12,14 @@ class BattlesController < ApplicationController
   #first step is displaying full info from fight
 
 
+
+    #@score_hash = {@team1 => {:winner => [], :loser => []}, @team2 => {:winner => [], :loser => []}}
   def team_fight
     @score_hash = @battle.fight
-    flash[:winner] = @score_hash.max_by{|team, score| score }[0].roster_name
+    @winner = @battle.winner
+    flash[:winner] = @score_hash.max_by{|team, score| score[:winner].size }[0].roster_name
+    flash[:win_powers]
+    byebug
     redirect_to @battle
   end
 
