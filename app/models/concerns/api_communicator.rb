@@ -36,12 +36,12 @@ module ApiCommunicator
     created_hero = Hero.create(new_hero_hash)
     parsed_response["results"]["powers"].each do |power|
       hero_pow = Power.find_by(name: "#{power["name"]}")
-      power_instance_array << hero_pow
+      created_hero.powers << hero_pow
     end
-    power_instance_array.each {|power| created_hero.powers << power}
-    if created_hero.powers = []
+    if created_hero.powers == []
       created_hero.powers << Power.find_by(name: "None")
     end
+    created_hero
   end
 
 end

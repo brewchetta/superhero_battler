@@ -41,7 +41,6 @@ class HerosController < ApplicationController
   #request data stores in instance var
 
   def add_hero_from_cv
-    flash[:powers] = []
     @hero = Hero.new_from_api(params[:api_id])
     redirect_to @hero
   end

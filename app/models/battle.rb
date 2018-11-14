@@ -50,30 +50,31 @@ class Battle < ApplicationRecord
       puts "The battle was a tie."
     end
     @score_hash
+    byebug
   end
 
-  #hash has four keys
-  #team1 winner team1 loser team 2  winner team 2 loser
-
   def hero_fight(hero1, hero2)
-    score1 = hero1.powers.sample.score
-    score2 = hero2.powers.sample.score
+    byebug
+    pow1 = hero1.powers.sample
+    pow2 = hero2.powers.sample
+    score1 = pow1.score
+    score2 = pow2.score
     boo = score1 <=> score2
       case boo
       #the puts method above is only for testing
       when 1
         puts "#{hero1.name} beat #{hero2.name}"
-        @winner1 = hero1
+        @winner1 = {hero1 => pow1.name}
       when -1
         puts "#{hero2.name} beat #{hero1.name}"
-        @winner2 = hero2
-     else
+        @winner2 = {hero2 => pow2.name}
+      else
         puts "#{hero1.name} tied with #{hero2.name}"
         return nil
-    end
+      end
     @winner1 || @winner2
   end
-  
+
 end
 
 #hero_fight needs to return a winner and a lp

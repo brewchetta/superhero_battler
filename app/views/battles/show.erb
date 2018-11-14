@@ -1,6 +1,9 @@
 <h1><%= @battle.name %></h1>
 
-<%= flash["winner"] if flash["winner"] %> <br>
+<% if flash["winner"] %> <br>
+<p><%= flash["winner"]  %> has won the battle!</p>
+
+<% end %>
 <br>
 <br>
 
