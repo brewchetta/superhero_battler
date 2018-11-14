@@ -6,6 +6,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Script for randomizing backgrounds -->
+    <script type="text/javascript">
+
+    // Random backgrounds
+    var bgs = ["https://cdnb.artstation.com/p/assets/images/images/009/963/699/large/callum-bater-comic-city-night.jpg?1521806579",
+    "https://www.technobuffalo.com/wp-content/uploads/2013/10/The-Wolf-Among-Us-Cab-in-Fabletown.jpg",
+    "https://vignette.wikia.nocookie.net/batman/images/0/06/Gotham_skyline1.jpg/revision/latest?cb=20160927182822",
+    "https://vignette.wikia.nocookie.net/marveldatabase/images/1/12/New_York_%285%29.png/revision/latest?cb=20120213224604",
+    "https://lh4.ggpht.com/p2N3q5Z_NLVJKNpLG4oGtcftFw6Rfjpqse7Mmg7XhHSjENhnVosSecbu_gwsbVpYiw=h900",
+    "http://www.bfi.org.uk/sites/bfi.org.uk/files/styles/full/public/image/akira-1987-001-city-lights-and-bikers.jpg"
+    ];
+
+    var bg = bgs[Math.floor(Math.random() * bgs.length)];
+
+    // Changes background
+    $(document).ready(function() {
+      $('.main').css("background-image", `url('${bg}')`);
+    });
+
+    // Turbolinks fix for background change
+    $(document).on('turbolinks:load' ,function() {
+      $('.main').css("background-image", `url('${bg}')`);
+    });
+
+    </script>
+
   </head>
   <body>
     <div class="main">

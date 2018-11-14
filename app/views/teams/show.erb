@@ -1,5 +1,16 @@
-<h1><%= @team.roster_name %></h1>
-<p style="font-size: 0.6em"><%= link_to "Edit Team", edit_user_team_path(@user,@team) %></p>
+<div class="title">
+
+  <h4><%= @team.roster_name %></h4>
+
+  <% if session[:user_id] && session[:user_id] == @team.user.id %>
+  <p class="edit-team-bt"><%= link_to "Edit Team", edit_user_team_path(@user,@team) %></p>
+  <% end %>
+
+</div>
+
+
+
+
 
 <% @heros.each do |h| %>
   <p><%= h.name %></p>

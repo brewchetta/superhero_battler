@@ -4,20 +4,22 @@
 .user-item {
   display: inline-block;
   margin: 1em;
-  background: black;
-  padding: 0.5em;
-  color: white;
-  border-radius: 1em;
+  background-image: url('https://img.freepik.com/darmowe-wektory/streszczenie-komiks-stylu-po%C5%82tonow-t%C5%82a_1017-14461.jpg?size=338&ext=jpg');
+  background-size: cover;
+  box-shadow: 8px 8px black;
+  padding: 2em;
+  color: black;
+  border-radius: 3px;
 }
 
 .user-item > a {
-  color: white;
+  color: black;
   text-decoration: underline;
   font-size: 5em;
 }
 
 .user-item > a:hover {
-  color:red;
+  color:white;
 }
 
 .user-item > .user-item-remove {
@@ -25,18 +27,86 @@
   border-bottom: none;
 }
 
-.user-team-list {
+div.user-team-list {
+  margin: 3em;
+  background: #ff944d;
+  min-width: 300px;
+  min-height: 300px;
+  border-radius: 3px;
+  box-shadow: 10px 10px black;
+}
+
+.user-team {
   display: inline-block;
-  background: black;
-  border-radius: 1em;
+  float: left;
   padding: 1em;
 }
 
-.user-team-list > p > a {
+.user-team > p > a {
+  padding: 0.5em;
+  font-size: 1.3em;
+  color: black;
+  border-radius: 3px;
+}
+
+.user-team > p > a:hover {
   color: white;
+  background-color: black;
+  box-shadow: 5px 5px grey;
+}
+
+.user-new-team-bt {
+  float: right;
+  background: black;
+}
+
+.user-new-team-bt:hover {
+  float: right;
+  background: white;
+}
+
+.user-new-team-bt > a {
+  color: white;
+  text-decoration: none;
+  padding: 1em;
+}
+
+.user-new-team-bt > a:hover {
+  color: black;
+  text-decoration: none;
+  padding: 1em;
+}
+
+.edit-user-bt {
+  text-decoration: none;
+  background: black;
+  padding: 0.5em;
+  color: white;
+  border-radius: 3px;
+}
+
+.edit-user {
+  padding: 1em;
+  margin-left: 10em;
+  background: white;
+  font-size: 1em;
+  max-width: 20em;
+  border-radius: 3px;
+  box-shadow: 5px 5px black;
+}
+
+.sign-up-bt {
+  padding: 1em;
+  background-image: url('https://cdn.tutsplus.com/vector/uploads/legacy/qt/2012_QT/qt_65_halftone/Image_05.jpg');
+  background-size: cover;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 4px 4px black;
+  float: right;
+  color: black;
   text-decoration: none;
 }
 
-.main {
-  background-image: url('https://cdnb.artstation.com/p/assets/images/images/009/963/699/large/callum-bater-comic-city-night.jpg?1521806579');
+.sign-up-bt:hover {
+  text-decoration: underline;
 }

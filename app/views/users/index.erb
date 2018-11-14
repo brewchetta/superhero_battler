@@ -1,4 +1,9 @@
-<h1 class="title">Users ALL OF THEM</h1>
+<h1 class="title">... Users!</h1>
+
+<% unless session[:user_id] %>
+  <%= link_to "Join the Fight!", new_user_path, class:"sign-up-bt" %>
+<% end %>
+<br>
 
 <% @users.each do |u| %>
   <div class="user-item"><%= link_to u.name, u %></div>
