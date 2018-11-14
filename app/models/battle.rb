@@ -50,7 +50,6 @@ class Battle < ApplicationRecord
       puts "The battle was a tie."
     end
     @score_hash
-    byebug
   end
 
   #hash has four keys
@@ -74,7 +73,7 @@ class Battle < ApplicationRecord
     end
     @winner1 || @winner2
   end
-
+  
 end
 
 #hero_fight needs to return a winner and a lp

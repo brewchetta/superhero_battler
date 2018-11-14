@@ -7,11 +7,10 @@ class BattlesController < ApplicationController
     @battle.name = "#{@team1.roster_name} vs. #{@team2.roster_name}"
 
   end
+  #show will load all of the winning data in hidden divs
+  #js will show the winning data onClicks
+  #first step is displaying full info from fight
 
-  #button on the show page which begins the fight
-  #what data is available after the request?
-  #button hits controller action containing fight logic
-  #redirects or renders a new view displaying winner
 
   def team_fight
     @score_hash = @battle.fight
