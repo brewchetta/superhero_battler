@@ -1,22 +1,31 @@
 <div class="link-box" style="min-width: 10em;">
   <h1><%= @user.name %></h1>
-  <p style="font-size: 0.7em"><%= link_to "Edit #{@user.name}", edit_user_path %></p>
 
+  <!-- Edit button if logged in -->
+  <% if @user.id == session[:user_id] %>
+  <p style="font-size: 0.7em"><%= link_to "Edit #{@user.name}", edit_user_path %></p>
+  <% end %>
+
+<!-- Teamlist divs -->
   <div style="margin: 3em;">
 
-    <div class="user-team-list">
+
       <% @teams.each do |t| %>
+      <div class="user-team-list">
         <p style="color:white"><%= link_to t.roster_name, user_team_path(@user, t) %>
           <% if session[:user_id] %>
           <% if session[:user_id] == @user.id  %>
           | <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
           <% end %>
           <% end %>
+          </div>
       <% end %><br>
-    </div>
 
   </div>
 
+  <!-- New Team button if logged in -->
+  <% if @user.id == session[:user_id] %>
   <p><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
+  <% end %>
 
 </div>

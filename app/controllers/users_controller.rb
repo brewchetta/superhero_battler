@@ -29,6 +29,15 @@ class UsersController < ApplicationController
 
 
   def edit
+    if session[:user_id]
+      if @user.id == session[:user_id]
+        render 'edit'
+      else
+        redirect_to users_path
+      end
+    else
+      redirect_to login_path
+    end
   end
 
 
