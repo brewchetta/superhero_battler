@@ -20,6 +20,7 @@
         <div class="h-right">
           <% if !session[:user_id] %>
 
+          <!-- If logged out -->
             <%= form_tag sessions_path do %>
               <p style='margin:0;'>Username:</p>
               <%= text_field_tag :name, nil, class: 'login-field' %>
@@ -31,8 +32,9 @@
 
           <% else %>
 
-            <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]) %>
-            <p> | </p>
+          <!-- If logged in -->
+            <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]), class: "link-to" %>
+            <p style="margin-block-start: 0">||</p>
             <%= link_to "Logout", sessions_path, method: :delete %>
 
           <% end %>

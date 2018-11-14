@@ -52,6 +52,12 @@ header > .h-right {
 header > .h-right > * {
   color: white;
   display: inline-flex;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+header > .h-right > a:hover {
+  color: red;
 }
 
 .h-left > p > a {
