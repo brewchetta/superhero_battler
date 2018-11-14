@@ -1,18 +1,24 @@
-<h1>ALL DA HEROES / HEROS</h1>
+  <h1 class="title">ALL DA HEROES / HEROS</h1>
 
-<!-- TODO Add API stuff -->
-<% @heros.each do |h| %>
-  <h3><%= link_to h.name, h %></h3>
-  <%= image_tag h.image_url %>
-<% end %>
+  <div class="link-box"><%= link_to "Add A Hero", new_hero_path %><br> </div><br>
 
-<% if flash[:array] %>
-  <% flash[:array].each do |result| %>
-  <%= result["name"] %> <br>
-  <%= image_tag result["image_url"] %>
-    <%= form_tag '/heros/create_from_api', method: :get do %>
-      <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
-      <%= submit_tag %>
-    <% end %>
-  <% end %> <br>
-<% end %>
+  <!-- TODO Add API stuff -->
+
+  <% @heros.each do |h| %>
+  <div class="char-index-box">
+    <h3><%= link_to h.name, h %></h3>
+    <%= link_to image_tag("#{h.image_url}"), h %>
+    <!-- <img src="<%= h.image_url %>" class="char-img"> -->
+  </div>
+  <% end %>
+
+  <% if flash[:array] %>
+    <% flash[:array].each do |result| %>
+    <%= result["name"] %> <br>
+    <%= image_tag result["image_url"] %>
+      <%= form_tag '/heros/create_from_api', method: :get do %>
+        <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
+        <%= submit_tag %>
+      <% end %>
+    <% end %> <br>
+  <% end %>

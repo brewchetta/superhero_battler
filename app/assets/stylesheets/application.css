@@ -18,12 +18,18 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background: grey;
 }
 
 header {
-  height: 2.2em;
+  height: 2.4em;
   color: white;
   background-color: black;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  text-align: left;
 }
 
 header > p > a {
@@ -41,4 +47,51 @@ footer {
   height: 2.2em;
   color: white;
   background-color: black;
+  position: sticky;
+  bottom: 0;
+}
+
+.main {
+  background-image: url('https://image.freepik.com/free-vector/abstract-comic-book-background_1055-2509.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.char-index-box > a > img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.char-index-box {
+  display: inline-block;
+  width: 32%;
+  border: solid black 2px;
+  text-align: center;
+  margin: 1px;
+  background-color: black;
+}
+
+.title {
+  color: red;
+  background: orange;
+  border: solid black 2px;
+}
+
+.link-box {
+  display: inline-block;
+  clear: both;
+  background-image: url('https://t2.ftcdn.net/jpg/01/43/21/49/400_F_143214906_9lRW3hO8HkrjrikQ3tfO7hSFzIIn7bL7.jpg');
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.link-box > a {
+  text-decoration: none;
+  font-size: 2em;
+  color: black;
+}
+
+.link-box > a:hover {
+  color: red;
 }

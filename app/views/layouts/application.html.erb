@@ -7,18 +7,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <div class="main">
 
-    <header>
-      <p><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
-    </header>
+      <header>
+        <p><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
+      </header><br>
 
-    <%= yield %>
+      <%= yield %>
 
-    <footer>
-      <!-- TODO footer goes here -->
-    </footer>
+      <footer>
+        <!-- TODO footer goes here? -->
+      </footer>
 
+    </div>
   </body>
 </html>

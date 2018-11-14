@@ -35,6 +35,9 @@
     <%= f.submit "Add Hero"%>
     <% end %>
 <% end %>
+<br>
+
+<p><%= link_to "Add Hero to Database", new_hero_path %></p>
 
 <!-- Return button -->
 <p><%= link_to "Back to #{@user.name}", user_path(@user) %></p>
