@@ -1,7 +1,22 @@
-
-
 <h1><%= @battle.name %></h1>
+
 <%= flash["winner"] if flash["winner"] %> <br>
+<br>
+<br>
+
+  <%= @battle.team1.roster_name %>
+  <% @battle.team1.heros.each do |hero| %>
+  <ol>
+    <li><%= hero.name %></li>
+  </ol>
+  <% end %>
+
+  <%= @battle.team2.roster_name %>
+  <% @battle.team2.heros.each do |hero| %>
+    <ol>
+      <li><%= hero.name %></li>
+    </ol>
+  <% end %>
 
 
 <%= link_to "Fight these Heroes", battle_fight_path %>

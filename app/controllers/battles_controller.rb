@@ -16,7 +16,6 @@ class BattlesController < ApplicationController
   def team_fight
     @score_hash = @battle.fight
     flash[:winner] = @score_hash.max_by{|team, score| score }[0].roster_name
-    byebug
     redirect_to @battle
   end
 
@@ -33,6 +32,10 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.create(battle_params)
+    t1 = @battle.team1
+    t2 = @battle.team2
+    @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
+    @battle.save
     redirect_to @battle
   end
 
