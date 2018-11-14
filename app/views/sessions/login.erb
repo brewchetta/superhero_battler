@@ -1,4 +1,4 @@
-<br> <div style="min-height: 100px; background: blue; padding: 30px; display: inline-block; text-align: left; margin: 5em;">
+<br> <div style="min-height: 100px; background: blue; padding: 30px; display: inline-block; text-align: left; margin: 5em; box-shadow: 5px 5px black;">
 
   <% if flash[:notify] %>
     <p>// <%= flash[:notify] %></p>
@@ -13,5 +13,11 @@
     <%= password_field_tag :password %><br><br>
     <%= submit_tag "Sign In" %>
   <% end %>
+
+  <br>
+  <br>
+  <br>
+
+  <%= link_to "... or create a new user!", new_user_path, class:"sign-up-bt" %>
 
 </div>

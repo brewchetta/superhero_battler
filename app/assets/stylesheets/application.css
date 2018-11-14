@@ -112,9 +112,17 @@ footer {
 }
 
 .title {
-  color: red;
-  background: orange;
-  border: solid black 2px;
+  color: black;
+  font-size: 3em;
+  background-image: url('http://tse2.mm.bing.net/th?id=OIP.jUbe1nMwdRzIsu0vx1Rb7gHaHa');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: solid black 3px;
+  border-radius: 5px;
+  box-shadow: 5px 5px black;
+  display: block;
+  max-width: 9em;
+  min-width: 5em;
 }
 
 .link-box {
