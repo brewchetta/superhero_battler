@@ -316,6 +316,11 @@ a.char-name:hover {
   max-width: 69%;
 }
 
+.winner {
+  display: block;
+  width: 100%;
+}
+
 .search-image {
   max-width: 39%;
 }
