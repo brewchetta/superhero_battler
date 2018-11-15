@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_team, only: [:show, :edit, :update, :destroy, :add_hero]
+  before_action :find_team, only: [:show, :edit, :update, :destroy, :add_hero, :add_to_team]
   # Now that team is nested, we need to find the user for most actions
   before_action :find_user
 
@@ -39,7 +39,6 @@ class TeamsController < ApplicationController
     redirect_to user_team_path(@user, @team)
   end
 
-
   def edit
   end
 
@@ -56,6 +55,14 @@ class TeamsController < ApplicationController
 
       redirect_to edit_user_team_path(@user, @team)
     end
+  end
+
+  # Adds hero to team once found
+  def add_to_team
+    byebug
+    @team.heros << Hero.find_by(id: params[:hero_id])
+
+    redirect_to user_team_path(@user, @team)
   end
 
 

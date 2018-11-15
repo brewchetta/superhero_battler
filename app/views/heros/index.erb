@@ -8,7 +8,13 @@
   <div class="char-index-box">
     <h3><%= link_to h.name, h %></h3>
     <%= link_to image_tag("#{h.image_url}"), h %>
-    <!-- <img src="<%= h.image_url %>" class="char-img"> -->
+
+    <!-- If team is stored for adding heros -->
+    <% if @team %>
+      <% unless @team.heros.include?(h) %>
+        <%= link_to "Add to #{@team.roster_name}" , add_hero_to_team_path(@team.user, @team, h.id), method: :post %>
+      <% end %>
+    <% end %>
   </div>
   <% end %>
 

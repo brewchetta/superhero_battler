@@ -2,6 +2,9 @@ class HerosController < ApplicationController
   before_action :find_hero, only: [:show, :edit, :update, :destroy]
   before_action :find_teams, only: [:show]
 
+  #For adding heros to current team (if not full)
+  before_action :current_team
+
   def index
     @heros = Hero.all
   end
@@ -34,12 +37,21 @@ class HerosController < ApplicationController
       flash[:array] << result
     end
     redirect_to heros_path
+    #submit button from index hits here
+    #get request to api resource of 'character'
+    #calls a new method from ApiCommunicator
+    #request data stores in instance var
   end
-  #submit button from index hits here
-  #get request to api resource of 'character'
-  #calls a new method from ApiCommunicator
-  #request data stores in instance var
 
+
+  # From team show page, adds hero to that team
+  def add_to_team
+    session[:current_team_id] = Team.find_by(id: params[:id]).id
+
+    redirect_to heros_path
+  end
+
+  # Finds new hero from comic vine
   def add_hero_from_cv
     @hero = Hero.new_from_api(params[:api_id])
     redirect_to @hero
@@ -68,6 +80,10 @@ class HerosController < ApplicationController
 
   def find_teams
     @teams = find_hero.teams
+  end
+
+  def current_team
+    @team = Team.find_by(id: session[:current_team_id]) if session[:current_team_id]
   end
 
 end

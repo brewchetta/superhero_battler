@@ -9,6 +9,16 @@
 </div>
 
 
+<div class="" style="color: white; background: black;">
+
+  <% if session[:user_id] && session[:user_id] == @team.user.id && @team.heros.count < 5 %>
+
+  <%= link_to "Find Hero For Team", add_hero_path, class: 'edit-team-bt' %>
+
+  <% end %>
+
+</div>
+
 
 
 

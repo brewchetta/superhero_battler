@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   get "/heros/create_from_api", to: "heros#add_hero_from_cv", as: "heros_search_create"
 
+  # Path for finding hero from team page
+  get "user/:user_id/teams/:id/add_hero", to: "heros#add_to_team", as: "add_hero"
+
+  #Path for actually adding hero to team
+  post "user/:user_id/teams/:id/add_hero/:hero_id", to: "teams#add_to_team", as: "add_hero_to_team"
+
   patch "user/:user_id/teams/:id/add-hero", to: "teams#add_hero", as: "add_heros_team"
 
   get 'sessions/login', to: 'sessions#new', as: 'login'
