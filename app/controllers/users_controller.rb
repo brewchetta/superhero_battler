@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
 
   def show
+    @teams = @user.teams
+    @battles = @teams.map do |team|
+      Battle.find_by(team_id1: team.id) || Battle.find_by(team_id2: team.id)
+    end
   end
 
 

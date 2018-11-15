@@ -35,10 +35,7 @@ class HerosController < ApplicationController
       flash[:array] << result
     end
     redirect_to heros_path
-    #submit button from index hits here
-    #get request to api resource of 'character'
-    #calls a new method from ApiCommunicator
-    #request data stores in instance var
+    #submit button from index hits her
   end
 
 
