@@ -13,6 +13,7 @@
 }
 
 .user-item > a {
+  font-family: 'Bangers', sans-serif;
   color: black;
   text-decoration: underline;
   font-size: 5em;
@@ -28,6 +29,7 @@
 }
 
 div.user-team-list {
+  font-family: 'Permanent Marker', sans-serif;
   margin: 3em;
   background: #ff944d;
   min-width: 300px;
@@ -86,6 +88,7 @@ div.user-team-list {
 }
 
 .edit-user {
+  font-family: 'Oswald', sans-serif;
   padding: 1em;
   margin-left: 10em;
   background: white;
@@ -93,20 +96,4 @@ div.user-team-list {
   max-width: 20em;
   border-radius: 3px;
   box-shadow: 5px 5px black;
-}
-
-.sign-up-bt {
-  padding: 1em;
-  background-image: url('https://cdn.tutsplus.com/vector/uploads/legacy/qt/2012_QT/qt_65_halftone/Image_05.jpg');
-  background-size: cover;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  box-shadow: 4px 4px black;
-  float: right;
-  color: black;
-  text-decoration: none;
-}
-
-.sign-up-bt:hover {
-  text-decoration: underline;
 }

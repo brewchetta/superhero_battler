@@ -34,6 +34,7 @@ header {
 }
 
 header > .h-left {
+  font-family: 'Bangers', sans-serif;
   width: 30%;
   text-align: left;
   display: inline-block;
@@ -52,6 +53,7 @@ header > .h-right {
 }
 
 header > .h-right > * {
+  font-family: 'Bangers', sans-serif;
   color: white;
   display: inline-flex;
   text-decoration: none;
@@ -112,6 +114,7 @@ footer {
 }
 
 .title {
+  font-family: 'Bangers', cursive;
   color: black;
   font-size: 3em;
   background-image: url('http://tse2.mm.bing.net/th?id=OIP.jUbe1nMwdRzIsu0vx1Rb7gHaHa');
@@ -125,9 +128,24 @@ footer {
   min-width: 5em;
 }
 
-.link-box {
+.link-generic {
+  color: black;
+  text-decoration: none;
+  font-family: 'Permanent Marker', sans-serif;
   display: inline-block;
-  clear: both;
+  background-image: linear-gradient(white, #ffff80);
+  padding: 1em;
+  border-radius: 1px;
+  box-shadow: 5px 5px black;
+}
+
+.link-generic:hover {
+  background-image: linear-gradient(#ffff80, #cccc00);
+}
+
+.link-box {
+  font-family: 'Permanent Marker', sans-serif;
+  display: inline-block;
   background-image: url('http://tse2.mm.bing.net/th?id=OIP.jUbe1nMwdRzIsu0vx1Rb7gHaHa');
   background-size: cover;
   padding: 1em;
@@ -142,4 +160,12 @@ footer {
 
 .link-box > a:hover {
   color: red;
+}
+
+.button {
+  font-size: 1.2em;
+  margin: 0.5em;
+  color: green;
+  background-image: ;
+  box-shadow: 5px 5px black;
 }
