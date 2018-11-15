@@ -257,10 +257,33 @@ a.char-name:hover {
 }
 
 .drop-select {
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: "Permanent Marker", sans-serif;
   color: white;
   background: black;
   border: solid white 3px;
   border-radius: 4px;
+}
+
+.battle-tab {
+  background-image:url('https://us.123rf.com/450wm/sanchesnet1/sanchesnet11801/sanchesnet1180100020/93124962-comic-book-explosion-pop-art-retro-background-with-halftone-dots-and-speech-bubble-vector-illustrati.jpg?ver=6');
+  color:black;
+  display:inline-block;
+  float:left;
+  margin:1em;
+  box-shadow:5px 5px black;
+  border-radius:3px;
+  font-family:'Permanent Marker', sans-serif;
+  background-position: right;
+  float: left;
+}
+
+.roster {
+  background: white;
+  width: 40%;
+  display: inline-block;
+  border-radius: 4px;
+  color: black;
+  background-image: linear-gradient();
+  box-shadow: 7px 7px black;
 }

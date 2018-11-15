@@ -19,8 +19,11 @@ class BattlesController < ApplicationController
 
   def index
     @battles = Battle.all
+    @battle = Battle.new
+    @teams = Team.all
   end
 
+  # Possibly remove
   def new
     @battle = Battle.new
     @teams = Team.all

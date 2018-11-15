@@ -1,5 +1,30 @@
-<h1><%= @battle.name %></h1>
+<% unless flash["winner"] %>
+  <h1 class="title">...are you ready?!?</h1>
+<% end %>
 
+<!-- Roster 1 -->
+<div class="roster">
+  <h2><%= @battle.team1.roster_name %></h2>
+  <% @battle.team1.heros.each do |hero| %>
+    <p><%= hero.name %></p>
+  <% end %>
+</div>
+
+<p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
+
+<!-- Roster 2 -->
+<div class="roster">
+  <%= @battle.team2.roster_name %>
+  <% @battle.team2.heros.each do |hero| %>
+    <ol>
+      <li><%= hero.name %></li>
+    </ol>
+  <% end %>
+</div>
+
+
+
+<!-- After a win is shown -->
 <% if flash["winner"] %> <br>
 
 <script>
@@ -76,38 +101,42 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class=>
-  <li><h5 class="duel1" style="display:none"><%= flash["duels"][0] %></h5>  <button class="duel1-show" id="duel1-show">Show</button>  </li>
-  <li><h5 class="duel2" style="display:none"><%= flash["duels"][1] %></h5>  <button class="duel2-show" id="duel2-show">Show</button>  </li>
-  <li><h5 class="duel3" style="display:none"><%= flash["duels"][2] %></h5>  <button class="duel3-show" id="duel3-show">Show</button>  </li>
-  <li><h5 class="duel4" style="display:none"><%= flash["duels"][3] %></h5>  <button class="duel4-show" id="duel4-show">Show</button>  </li>
-  <li><h5 class="duel5" style="display:none"><%= flash["duels"][4] %></h5>  <button class="duel5-show" id="duel5-show">Show</button>  </li>
+  <h1 class="title"><%= @battle.name %></h1>
+
+<!-- Matchups results -->
+<ul class="">
+
+  <li>
+    <h5 class="duel1" style="display:none"><%= flash["duels"][0] %></h5>
+    <button class="duel1-show" id="duel1-show">Show</button>
+  </li>
+  <li>
+    <h5 class="duel2" style="display:none"><%= flash["duels"][1] %></h5>
+    <button class="duel2-show" id="duel2-show">Show</button>
+  </li>
+  <li>
+    <h5 class="duel3" style="display:none"><%= flash["duels"][2] %></h5>
+    <button class="duel3-show" id="duel3-show">Show</button>
+  </li>
+  <li>
+    <h5 class="duel4" style="display:none"><%= flash["duels"][3] %></h5>
+    <button class="duel4-show" id="duel4-show">Show</button>
+  </li>
+  <li>
+    <h5 class="duel5" style="display:none"><%= flash["duels"][4] %></h5>
+    <button class="duel5-show" id="duel5-show">Show</button>
+  </li>
+
 </ul>
 
+<!-- Fight result -->
 <article>
-<h3 class="winner" style="display:none"><%= flash["winner"]  %> </h3>
-<button class="winner-show" id="winner-show">Show</button>
+  <h3 class="winner" style="display:none"><%= flash["winner"]  %> </h3>
+  <button class="winner-show" id="winner-show">Show</button>
 </article>
 <% end %>
+
 <br>
 <br>
-
-<div>
-  <%= @battle.team1.roster_name %>
-  <% @battle.team1.heros.each do |hero| %>
-  <ol>
-    <li><%= hero.name %></li>
-  </ol>
-  <% end %>
-</div>
-
-<div>
-  <%= @battle.team2.roster_name %>
-  <% @battle.team2.heros.each do |hero| %>
-    <ol>
-      <li><%= hero.name %></li>
-    </ol>
-  <% end %>
-</div>
 
 <%= link_to "Fight these Heroes", battle_fight_path %>

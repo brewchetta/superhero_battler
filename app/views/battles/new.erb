@@ -1,11 +1,18 @@
 <h1 class="title">Choose Your Battle</h1>
 
-<div class="button">
+<div class="button" style="background-image: linear-gradient(#cc0000,#1a1100)">
 
 <%= form_for @battle do |f| %>
-  <%= f.collection_select :team_id1, @teams, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %> <p style="font-family: 'Bangers', sans-serif; font-size: 2em; display: inline-block;">vs</p>
+
+  <%= f.collection_select :team_id1, @teams, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
+
+  <p style="font-family: 'Bangers', sans-serif; font-size: 2em; display: inline-block;">vs</p>
+
   <%= f.collection_select :team_id2, @teams, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
-  <%= f.submit %>
+
+  <br>
+
+  <%= f.submit "Fight!", class: "button"%>
 
 <% end %>
 
