@@ -333,5 +333,16 @@ a.char-name:hover {
 }
 
 .brainiac {
-  font-family: "Process Start 2p", sans-serif;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.pagination a {
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 1.2em;
+  margin: 0.5em;
+  color: black;
+  border-radius: 2px;
+  background-image: linear-gradient(white, #ffb3e6);
+  box-shadow: 3px 3px black;
+  border: none;
 }
