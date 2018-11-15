@@ -68,6 +68,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
+    session[:current_team_id]
 
     redirect_to user_path(@user)
   end

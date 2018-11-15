@@ -26,9 +26,11 @@
 </div>
 
 <div class="">
-
-  <% if @team && @team.heros.include?(@hero) %>
-
+  <!-- Add hero to team if team exists / hero exists -->
+  <% if @team && !@team.heros.include?(@hero) %>
+    <div class="">
+      
+    </div>
   <% end %>
 
 </div>
