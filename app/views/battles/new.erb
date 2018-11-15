@@ -2,6 +2,12 @@
 
 <div class="button" style="background-image: linear-gradient(#cc0000,#1a1100)">
 
+<% if flash[:error] %>
+    <ul>
+      <li><%= flash[:error] %></li>
+    </ul>
+<% end %>
+
 <%= form_for @battle do |f| %>
 
   <%= f.collection_select :team_id1, @teams, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>

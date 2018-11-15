@@ -19,14 +19,10 @@ class HerosController < ApplicationController
 
   def create
     @hero = Hero.create(hero_params)
-    byebug
     redirect_to @hero
   end
 
   def search_results
-
-
-    byebug
     render :search_results
   end
 

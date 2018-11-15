@@ -1,6 +1,18 @@
 class Battle < ApplicationRecord
+  validate :full_team, on: :create
 
   attr_accessor :team1, :team2, :winner2, :winner1, :scores_hash, :winner
+
+  def full_team
+    team1 = self.team1
+    team2 = self.team2
+    if team1.full?
+      errors.add(:team_id1, "must have full team")
+    elsif team2.full?
+      errors.add(:team_id2, "must have full team")
+    end
+
+  end
 
   def teams
     teams = []
