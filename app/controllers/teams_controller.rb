@@ -65,7 +65,9 @@ class TeamsController < ApplicationController
   end
 
   def remove_from_team
+    HerosTeam.find_by(hero_id: params[:hero_id], team_id: params[:team_id]).destroy
 
+    redirect_to user_path(@user)
   end
 
 

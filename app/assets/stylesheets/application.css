@@ -255,3 +255,12 @@ a.char-name:hover {
   float: left;
   margin: 1em;
 }
+
+.drop-select {
+  font-size: 2em;
+  font-family: "Permanent Marker", sans-serif;
+  color: white;
+  background: black;
+  border: solid white 3px;
+  border-radius: 4px;
+}
