@@ -14,6 +14,7 @@ class HerosController < ApplicationController
 
   def new
     @hero = Hero.new
+    redirect_to heros_path
   end
 
 
