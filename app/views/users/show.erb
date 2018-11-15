@@ -40,7 +40,9 @@
       <div class="user-battles">
         <% @battles.each do |battle| %>
           <section>
-            <%= link_to "#{battle.name}", "/battles/#{battle.id}/fight" %>
+            <% if battle %>
+              <%= link_to "#{battle.name}", "/battles/#{battle.id}/fight" %>
+            <% end %>
           </section>
         <% end %>
       </div>
