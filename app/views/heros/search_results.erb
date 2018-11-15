@@ -1,5 +1,5 @@
 <% if flash[:array] == [] %>
-  <h2 class="brainiac"> No results Found! </h2>
+  <h2 class="brainiac", style="margin-top: 5%;"> No results Found! </h2>
   <%= link_to "Try Again", heros_path, class:"brainiac" %>
 <% elsif flash[:array] %>
   <% flash[:array].each do |result| %>
