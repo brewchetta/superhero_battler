@@ -3,6 +3,8 @@ class HerosController < ApplicationController
   before_action :find_teams, only: [:show]
   before_action :current_team #For adding heros to current team (if not full)
 
+  validates :api_id, uniqueness: true
+
   def index
     @heros = Hero.all
   end
@@ -35,10 +37,7 @@ class HerosController < ApplicationController
       flash[:array] << result
     end
     redirect_to heros_path
-    #submit button from index hits here
-    #get request to api resource of 'character'
-    #calls a new method from ApiCommunicator
-    #request data stores in instance var
+    #submit button from index hits her
   end
 
 
