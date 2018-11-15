@@ -1,5 +1,5 @@
 class Battle < ApplicationRecord
-  validate :full_team, on: :create
+  # validate :full_team, on: :create
 
   attr_accessor :team1, :team2, :winner2, :winner1, :scores_hash, :winner
 
