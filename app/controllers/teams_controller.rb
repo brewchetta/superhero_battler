@@ -59,7 +59,6 @@ class TeamsController < ApplicationController
 
   # Adds hero to team once found
   def add_to_team
-    byebug
     @team.heros << Hero.find_by(id: params[:hero_id])
 
     redirect_to user_team_path(@user, @team)
