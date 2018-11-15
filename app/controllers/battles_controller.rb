@@ -5,7 +5,6 @@ class BattlesController < ApplicationController
     @team1 = @battle.team1
     @team2 = @battle.team2
     @battle.name = "#{@team1.roster_name} vs. #{@team2.roster_name}"
-
   end
 
   def team_fight
@@ -39,9 +38,9 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.create(battle_params)
+    t1 = @battle.team1
+    t2 = @battle.team2
     if @battle.team1.full? && @battle.team2.full?
-      t1 = @battle.team1
-      t2 = @battle.team2
       @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
       @battle.save
       redirect_to @battle
