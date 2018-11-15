@@ -286,4 +286,28 @@ a.char-name:hover {
   color: black;
   background-image: linear-gradient();
   box-shadow: 7px 7px black;
+  font-family: "Permanent Marker", sans-serif;
+}
+
+.roster > h2 {
+  font-family: "Bangers", sans-serif;
+}
+
+.roster > p {
+  display: inline-block;
+}
+
+.duel {
+  font-size: 1em;
+  background:black;
+  color:red;
+  display:inline-block;
+  margin:1em;
+  box-shadow:5px 5px black;
+  border-radius:3px;
+  font-family:'Permanent Marker', sans-serif;
+  background-position: right;
+  float: left;
+  border: 2px red solid;
+  padding: 0.5em;
 }

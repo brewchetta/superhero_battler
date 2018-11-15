@@ -1,29 +1,3 @@
-<% unless flash["winner"] %>
-  <h1 class="title">...are you ready?!?</h1>
-<% end %>
-
-<!-- Roster 1 -->
-<div class="roster">
-  <h2><%= @battle.team1.roster_name %></h2>
-  <% @battle.team1.heros.each do |hero| %>
-    <p><%= hero.name %></p>
-  <% end %>
-</div>
-
-<p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
-
-<!-- Roster 2 -->
-<div class="roster">
-  <%= @battle.team2.roster_name %>
-  <% @battle.team2.heros.each do |hero| %>
-    <ol>
-      <li><%= hero.name %></li>
-    </ol>
-  <% end %>
-</div>
-
-
-
 <!-- After a win is shown -->
 <% if flash["winner"] %> <br>
 
@@ -107,7 +81,7 @@ $(document).ready(function(){
 <ul class="">
 
   <li>
-    <h5 class="duel1" style="display:none"><%= flash["duels"][0] %></h5>
+    <h5 class="duel1 duel" style="display:none"><%= flash["duels"][0] %></h5>
     <button class="duel1-show" id="duel1-show">Show</button>
   </li>
   <li>
@@ -135,8 +109,35 @@ $(document).ready(function(){
   <button class="winner-show" id="winner-show">Show</button>
 </article>
 <% end %>
+<!-- end of if winner condition -->
+
+<% unless flash["winner"] %>
+  <h1 class="title">...are you ready?!?</h1>
+<% end %>
+
+<!-- Roster 1 -->
+<div class="roster">
+  <h2><%= @battle.team1.roster_name %></h2>
+  <% @battle.team1.heros.each do |hero| %>
+    <p><%= hero.name %></p>
+  <% end %>
+</div>
+
+<p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
+
+<!-- Roster 2 -->
+<div class="roster">
+  <h2><%= @battle.team2.roster_name %></h2>
+  <% @battle.team2.heros.each do |hero| %>
+      <p><%= hero.name %></p>
+
+      <% unless @battle.team2.heroes.last == hero %>
+        <p> * </p>
+      <% end %>
+
+  <% end %>
+</div>
 
 <br>
-<br>
 
-<%= link_to "Fight these Heroes", battle_fight_path %>
+<%= link_to "Fight these Heroes", battle_fight_path, class: "button" %>
