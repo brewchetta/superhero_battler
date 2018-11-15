@@ -2,6 +2,6 @@
 
 <% @powers.each do |power| %>
 <ul>
-  <li><p><%= link_to power.name, power %> has a potentency of: <%= power.score %></p></li>
+  <p style="display: inline-block;"><%= link_to power.name, power %> has a potentency of: <%= power.score %></p>
 </ul>
 <% end %>
