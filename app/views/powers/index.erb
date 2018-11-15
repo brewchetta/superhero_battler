@@ -1,5 +1,7 @@
-<h1>POWERS</h1>
+<h1>The Awesome Powers of Our Universe</h1>
 
 <% @powers.each do |power| %>
-  <p><%= link_to power.name, power %>: <%= power.score %></p>
+<ul>
+  <li><p><%= link_to power.name, power %> has a potentency of: <%= power.score %></p></li>
+</ul>
 <% end %>
