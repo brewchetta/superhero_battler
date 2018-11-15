@@ -37,6 +37,14 @@
       </div>
       <% end %><br>
 
+      <div class="user-battles">
+        <% @battles.each do |battle| %>
+          <section>
+            <%= link_to "#{battle.name}", "/battles/#{battle.id}/fight" %>
+          </section>
+        <% end %>
+      </div>
+
   </div>
 
   <!-- Add team area if logged in -->

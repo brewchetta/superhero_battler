@@ -1,8 +1,13 @@
+
+
+<h2><%= link_to "Create a new battle", new_battle_path %></h2>
+
+
 <% @battles.each do |battle| %>
+
   <section>
     <h2><%= battle.name %></h2> <br>
     <%= link_to "Fight these Heroes", "/battles/#{battle.id}/fight" %>
   </section>
 
-  <%= link_to "Create a new battle", new_battle_path %>
 <% end %>
