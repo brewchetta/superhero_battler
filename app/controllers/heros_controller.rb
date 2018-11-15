@@ -23,10 +23,12 @@ class HerosController < ApplicationController
     redirect_to @hero
   end
 
-  # TODO -
-  # get search results to display properly
-  #be able to create a hero from api
-  #add nicely displayed hero to team
+  def search_results
+
+
+    byebug
+    render :search_results
+  end
 
   def search
     @results = Hero.character_search(params[:name])
@@ -34,7 +36,7 @@ class HerosController < ApplicationController
     @results.each do |result|
       flash[:array] << result
     end
-    redirect_to heros_path
+    redirect_to hero_search_results_path
     #submit button from index hits her
   end
 
