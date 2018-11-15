@@ -9,12 +9,18 @@ class BattlesController < ApplicationController
   end
 
   def team_fight
-    @battle_array = @battle.winner[1]
-    @result = @battle.winner[0]
-    flash[:duels] = []
-    flash[:winner] = @result
-    @battle_array.each {|duel| flash[:duels] << duel}
-    redirect_to @battle
+    if @battle.team1.full? && @battle.team2.full?
+      @battle_array = @battle.winner[1]
+      @result = @battle.winner[0]
+      flash[:duels] = []
+      flash[:winner] = @result
+      @battle_array.each {|duel| flash[:duels] << duel}
+      redirect_to @battle
+    else
+      flash[:message] = "Teams need to be full to battle"
+      @user = User.find_by(id: session[:user_id])
+      redirect_to @user
+    end
   end
 
   def index
@@ -30,11 +36,16 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.create(battle_params)
-    t1 = @battle.team1
-    t2 = @battle.team2
-    @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
-    @battle.save
-    redirect_to @battle
+    if @battle.team1.full? && @battle.team2.full?
+      t1 = @battle.team1
+      t2 = @battle.team2
+      @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
+      @battle.save
+      redirect_to @battle
+    else
+      flash[:error] = "Teams must be full"
+      redirect_to new_battle_path
+    end
   end
 
   private

@@ -1,5 +1,11 @@
 <h1>Choose Your Battle</h1>
 
+<% if flash[:error] %>
+    <ul>
+      <li><%= flash[:error] %></li>
+    </ul>
+<% end %>
+
 <%= form_for @battle do |f| %>
   <%= f.collection_select :team_id1, @teams, :id, :roster_name %>
   <%= f.collection_select :team_id2, @teams, :id, :roster_name %>
