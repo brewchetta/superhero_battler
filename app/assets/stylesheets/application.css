@@ -311,3 +311,7 @@ a.char-name:hover {
   border: 2px red solid;
   padding: 0.5em;
 }
+
+.hero-image {
+  max-width: 69%;
+}

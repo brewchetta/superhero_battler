@@ -47,6 +47,7 @@ class HerosController < ApplicationController
   def add_hero_from_cv
     @hero = Hero.new_from_api(params[:api_id])
     if @hero.valid?
+      @hero.save
       redirect_to @hero
     else
       flash[:errors] = @hero.errors.full_messages
