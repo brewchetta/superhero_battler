@@ -29,6 +29,8 @@
 }
 
 div.user-team-list {
+  float: left;
+  width: 60%;
   font-family: 'Permanent Marker', sans-serif;
   margin: 3em;
   background: #ff944d;
@@ -45,10 +47,20 @@ div.user-team-list {
 }
 
 .user-team > p > a {
+  text-decoration: none;
   padding: 0.5em;
   font-size: 1.3em;
   color: black;
   border-radius: 3px;
+}
+
+li > a {
+  text-decoration: none;
+  color: black;
+}
+
+li > a:hover {
+  color: white;
 }
 
 .user-team > p > a:hover {

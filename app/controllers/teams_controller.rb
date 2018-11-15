@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     @user.teams << @team
     @team.save
-    redirect_to user_team_path(@user, @team)
+    redirect_to user_path(@user)
   end
 
   def edit

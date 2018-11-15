@@ -163,9 +163,20 @@ footer {
 }
 
 .button {
+  font-family: 'Permanent Marker', sans-serif;
   font-size: 1.2em;
   margin: 0.5em;
-  color: green;
-  background-image: ;
-  box-shadow: 5px 5px black;
+  color: black;
+  border-radius: 2px;
+  background-image: linear-gradient(white, #ffb3e6);
+  box-shadow: 3px 3px black;
+  border: none;
+}
+
+.button:active {
+  background-image: linear-gradient(#ff66cc, #990066);
+}
+
+.button:hover {
+  background-image: linear-gradient(#ffb3e6, #ff66cc);
 }

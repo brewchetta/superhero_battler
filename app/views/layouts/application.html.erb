@@ -68,8 +68,8 @@
 
           <!-- If logged in -->
             <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]), class: "link-to" %>
-            <p style="margin-block-start: 0">||</p>
-            <%= link_to "Logout", sessions_path, method: :delete %>
+            <p style="margin-block-start: 0"> | </p>
+            <%= link_to "Logout...", sessions_path, method: :delete %>
 
           <% end %>
         </div>

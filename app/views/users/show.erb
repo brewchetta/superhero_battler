@@ -18,27 +18,37 @@
 
     <h2 style="border-bottom: dotted black 3px; border-top: dotted black 3px; font-family: 'Bangers', sans-serif;">Teams</h2>
 
-    <!-- New Team button if logged in -->
-    <% if @user.id == session[:user_id] %>
-    <p class="user-new-team-bt"><%= link_to "Put Together A New Team", new_user_team_path(@user) %></p>
-    <% end %>
-
-
       <% @teams.each do |t| %>
       <div class="user-team">
-        <p style="color:black"><%= link_to t.roster_name, user_team_path(@user, t) %>
-          <% if session[:user_id] %>
-          <% if session[:user_id] == @user.id  %> : <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
-          <% end %>
+        <p style="color:black;"><span style='font-size:1.5em; text-decoration: underline;'><%= t.roster_name %></span>
+          <% if session[:user_id] && session[:user_id] == @user.id  %>:<%= link_to "Add Hero", user_team_path(@user,t), method: :delete %>:<%= link_to "X", user_team_path(@user,t), method: :delete %></p>
           <% end %>
 
           <!-- Hero list -->
           <ul>
             <% t.heros.each do |hero| %>
-              <li><%= hero.name %></li>
+              <li><%= link_to hero.name, hero %></li>
             <% end %>
           </ul>
       </div>
       <% end %><br>
 
   </div>
+
+  <!-- Add team area if logged in -->
+  <% if @user.id == session[:user_id] %>
+  <div style="float:left; display: inline-block;">
+
+    <h1 class="title" style="font-size: 2em;">... or Build A New Team!</h1>
+
+    <div class="edit-user">
+      <%= form_for :team, url: user_teams_path(@user), method: :post do |f| %>
+        <%= f.label :roster_name %>
+        <%= f.text_field :roster_name %><br>
+        <%= f.submit %>
+
+      <% end %>
+    </div>
+
+  </div>
+  <% end %>
