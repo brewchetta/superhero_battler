@@ -1,8 +1,18 @@
+<div style="">
   <h1 class="title">... Heroes!</h1>
+</div>
 
-  <div class="link-box"><%= link_to "Add A Hero", new_hero_path %><br> </div><br>
+  <div style="text-align: right; width: 99%;">
+    <h2 class="subtitle">...or Search ComicVine!</h2>
 
-  <!-- TODO Add API stuff -->
+    <%= form_tag(heros_search_path, method: :get) do  %>
+    <%= text_field_tag :name, params[:name], style: "border: solid black 4px;"%>
+    <%= submit_tag 'Search', class: "button", style: "font-size: 1em;" %>
+    <% end %>
+    <br>
+  </div>
+
+  <!-- <div class="link-box"><%= link_to "Add A Hero", new_hero_path %><br> </div><br> -->
 
   <% @heros.each do |h| %>
   <div class="char-index-box">
