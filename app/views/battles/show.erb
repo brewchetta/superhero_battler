@@ -2,77 +2,35 @@
 <% if flash["winner"] %> <br>
 
 <script>
+
 $(document).ready(function(){
-    $("#duel1-show").click(function(){
-        $(".duel1").show();
-    });
-    $("#duel1-show").click(function(){
-        $(".duel1-show").hide();
-    });
-    // $("#duel1-show").click(function(){
-    //     $(".duel1").animate({left: '250px'});
-    // });
+  $(".roster").fadeOut(1).delay(5000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $("#duel2-hide").click(function(){
-        $(".duel2").hide();
-    });
-    $("#duel2-show").click(function(){
-        $(".duel2").show();
-    });
-    $("#duel2-show").click(function(){
-        $(".duel2-show").hide();
-    });
+    $(".duel1").fadeOut(1).delay(1000).fadeIn(1000);
 });
 
 $(document).ready(function(){
-    $("#duel3-hide").click(function(){
-        $(".duel3").hide();
-    });
-    $("#duel3-show").click(function(){
-        $(".duel3").show();
-    });
-    $("#duel3-show").click(function(){
-        $(".duel3-show").hide();
-    });
+    $(".duel2").fadeOut(1).delay(1500).fadeIn(1000);
 });
 
 $(document).ready(function(){
-    $("#duel4-hide").click(function(){
-        $(".duel4").hide();
-    });
-    $("#duel4-show").click(function(){
-        $(".duel4").show();
-    });
-    $("#duel4-show").click(function(){
-        $(".duel4-show").hide();
-    });
+    $(".duel3").fadeOut(1).delay(2000).fadeIn(1000);
 });
 
 $(document).ready(function(){
-    $("#duel5-hide").click(function(){
-        $(".duel5").hide();
-    });
-    $("#duel5-show").click(function(){
-        $(".duel5").show();
-    });
-    $("#duel5-show").click(function(){
-        $(".duel5-show").hide();
-    });
+    $(".duel4").fadeOut(1).delay(2500).fadeIn(1000);
 });
 
 $(document).ready(function(){
-    $("#winner-hide").click(function(){
-        $(".winner").hide();
-    });
-    $("#winner-show").click(function(){
-        $(".winner").show();
-    });
-    $("#winner-show").click(function(){
-        $(".winner-show").hide();
-    });
+    $(".duel5").fadeOut(1).delay(3000).fadeIn(1000);
 });
+
+$(document).ready(function(){
+    $(".winner").delay(3000).fadeIn(1000);
+});
+
 </script>
 
   <h1 class="title"><%= @battle.name %></h1>
@@ -81,31 +39,30 @@ $(document).ready(function(){
 <ul class="">
 
   <li>
-    <h5 class="duel1 duel" style="display:none"><%= flash["duels"][0] %></h5>
-    <button class="duel1-show" id="duel1-show">Show</button>
+    <h5 class="duel1 duel"><%= flash["duels"][0] %></h5>
   </li>
+
   <li>
-    <h5 class="duel2" style="display:none"><%= flash["duels"][1] %></h5>
-    <button class="duel2-show" id="duel2-show">Show</button>
+    <h5 class="duel2 duel"><%= flash["duels"][1] %></h5>
   </li>
+
   <li>
-    <h5 class="duel3" style="display:none"><%= flash["duels"][2] %></h5>
-    <button class="duel3-show" id="duel3-show">Show</button>
+    <h5 class="duel3 duel"><%= flash["duels"][2] %></h5>
   </li>
+
   <li>
-    <h5 class="duel4" style="display:none"><%= flash["duels"][3] %></h5>
-    <button class="duel4-show" id="duel4-show">Show</button>
+    <h5 class="duel4 duel"><%= flash["duels"][3] %></h5>
   </li>
+
   <li>
-    <h5 class="duel5" style="display:none"><%= flash["duels"][4] %></h5>
-    <button class="duel5-show" id="duel5-show">Show</button>
+    <h5 class="duel5 duel"><%= flash["duels"][4] %></h5>
   </li>
 
 </ul>
 
 <!-- Fight result -->
 <article>
-  <h3 class="winner" style="display:none"><%= flash["winner"]  %> </h3>
+  <h3 class="winner duel" style="display:none"><%= flash["winner"]  %> </h3>
   <button class="winner-show" id="winner-show">Show</button>
 </article>
 <% end %>
@@ -119,8 +76,13 @@ $(document).ready(function(){
 <div class="roster">
   <h2><%= @battle.team1.roster_name %></h2>
   <% @battle.team1.heros.each do |hero| %>
-    <p><%= hero.name %></p>
+  <p><%= hero.name %></p>
+
+  <% unless @battle.team2.heroes.last == hero %>
+    <p> * </p>
   <% end %>
+
+<% end %>
 </div>
 
 <p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
