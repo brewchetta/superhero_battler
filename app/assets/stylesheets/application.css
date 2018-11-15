@@ -310,6 +310,8 @@ a.char-name:hover {
   float: left;
   border: 2px red solid;
   padding: 0.5em;
+  display: none;
+  letter-spacing: 2px;
 }
 
 .hero-image {
@@ -317,10 +319,18 @@ a.char-name:hover {
 }
 
 .winner {
-  display: block;
   width: 100%;
+  margin:0;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 5px;
+  border-color: red;
 }
 
 .search-image {
   max-width: 39%;
+}
+
+.brainiac {
+  font-family: "Process Start 2p", sans-serif;
 }

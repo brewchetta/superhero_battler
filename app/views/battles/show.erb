@@ -4,7 +4,14 @@
 <script>
 
 $(document).ready(function(){
-  $(".roster").fadeOut(1).delay(5000).fadeIn(500);
+  $(".rosters, .button").fadeOut(1).delay(5000).fadeIn(500);
+});
+
+$(document).ready(function(){
+  $('.duel').each(function(){
+    if $(this).
+    $(this).css('background','green')
+  });
 });
 
 $(document).ready(function(){
@@ -28,7 +35,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $(".winner").delay(3000).fadeIn(1000);
+    $(".winner").delay(3500).fadeIn(1000);
 });
 
 </script>
@@ -36,35 +43,26 @@ $(document).ready(function(){
   <h1 class="title"><%= @battle.name %></h1>
 
 <!-- Matchups results -->
-<ul class="">
 
-  <li>
-    <h5 class="duel1 duel"><%= flash["duels"][0] %></h5>
-  </li>
+<div>
 
-  <li>
-    <h5 class="duel2 duel"><%= flash["duels"][1] %></h5>
-  </li>
+  <h5 class="duel1 duel"><%= flash["duels"][0] %></h5>
 
-  <li>
-    <h5 class="duel3 duel"><%= flash["duels"][2] %></h5>
-  </li>
+  <h5 class="duel2 duel"><%= flash["duels"][1] %></h5>
 
-  <li>
-    <h5 class="duel4 duel"><%= flash["duels"][3] %></h5>
-  </li>
+  <h5 class="duel3 duel"><%= flash["duels"][2] %></h5>
 
-  <li>
-    <h5 class="duel5 duel"><%= flash["duels"][4] %></h5>
-  </li>
+  <h5 class="duel4 duel"><%= flash["duels"][3] %></h5>
 
-</ul>
+  <h5 class="duel5 duel"><%= flash["duels"][4] %></h5>
+
+</div>
 
 <!-- Fight result -->
 <article>
-  <h3 class="winner duel" style="display:none"><%= flash["winner"]  %> </h3>
-  <button class="winner-show" id="winner-show">Show</button>
+  <h3 class="winner duel" style="font-size: 1.5em"><%= flash["winner"]  %> </h3>
 </article>
+<br>
 <% end %>
 <!-- end of if winner condition -->
 
@@ -72,32 +70,38 @@ $(document).ready(function(){
   <h1 class="title">...are you ready?!?</h1>
 <% end %>
 
-<!-- Roster 1 -->
-<div class="roster">
-  <h2><%= @battle.team1.roster_name %></h2>
-  <% @battle.team1.heros.each do |hero| %>
-  <p><%= hero.name %></p>
+<!-- The rosters shown either immedaitely or at the end -->
+<div class="rosters">
 
-  <% unless @battle.team2.heroes.last == hero %>
-    <p> * </p>
-  <% end %>
+  <!-- Roster 1 -->
+  <div class="roster">
+    <h2><%= @battle.team1.roster_name %></h2>
+    <% @battle.team1.heros.each do |hero| %>
+    <p><%= hero.name %></p>
 
-<% end %>
-</div>
-
-<p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
-
-<!-- Roster 2 -->
-<div class="roster">
-  <h2><%= @battle.team2.roster_name %></h2>
-  <% @battle.team2.heros.each do |hero| %>
-      <p><%= hero.name %></p>
-
-      <% unless @battle.team2.heroes.last == hero %>
-        <p> * </p>
-      <% end %>
+    <% unless @battle.team2.heroes.last == hero %>
+      <p> * </p>
+    <% end %>
 
   <% end %>
+  </div>
+
+  <p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
+
+  <!-- Roster 2 -->
+  <div class="roster">
+    <h2><%= @battle.team2.roster_name %></h2>
+    <% @battle.team2.heros.each do |hero| %>
+        <p><%= hero.name %></p>
+
+        <% unless @battle.team2.heroes.last == hero %>
+          <p> * </p>
+        <% end %>
+
+    <% end %>
+  </div>
+  <!-- end rosters -->
+
 </div>
 
 <br>
