@@ -1,22 +1,23 @@
-<h1 style="background: blue;"><%= @hero.name %></h1>
+<h1 class="title"><%= @hero.name %></h1>
 
 
 
 
-<div>
+<div style="float:left; width: 50%; margin-bottom: 1em;">
   <%= image_tag @hero.image_url %><br>
 </div> <br>
-<div style="background: blue;">
+
+<div class="char-bio">
   <p><%= @hero.description %><br></p>
 </div>
-<div style="background: blue;">
+<div class="char-powers">
   <h4> Behold the Power of <%= "#{@hero.name}" %></h4>
     <% @hero.powers.each do |power| %>
-    <p><%= power.name %> </p>
+    <p style="display: inline-block;"><%= power.name %> | </p>
   <% end %>
 </div>
 
-<div class="" style="background: yellow;">
+<div class="" style="background: #ff8c1a;border-bottom: 5px solid black; border-top: 5px solid black;">
 
 <% if @teams.count > 0 %>
   <p>Currently part of:</p>
@@ -28,8 +29,8 @@
 
 <!-- Add hero to team if team exists / hero exists -->
 <% if @team && !@team.heros.include?(@hero) && @team.heros.count < 5 %>
-  <div class="">
-    <p><%= link_to "Enroll #{@hero.name} in #{@team.roster_name}", add_hero_to_team_path(@team.user, @team, @hero), method: :post %></p>
+  <div>
+    <p><%= link_to "Enroll #{@hero.name} in #{@team.roster_name}", add_hero_to_team_path(@team.user, @team, @hero), method: :post, class:"add-hero" %></p>
   </div>
 <% end %>
 

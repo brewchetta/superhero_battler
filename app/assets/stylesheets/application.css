@@ -112,13 +112,19 @@ a.char-name {
   float: left;
   left: 20px;
   z-index: 1;
-  background-image: linear-gradient(#ffb3b3,#ff3333);
+  background-image: url('https://us.123rf.com/450wm/phyzick/phyzick1707/phyzick170700010/81477767-old-style-comic-book-dotted-distressed-abstract-halftone-layout-pop-art-retro-graphic-style-page-bac.jpg?ver=6');
+  background-size: cover;
   padding: 0.3em;
   box-shadow: 5px 5px black;
   font-family: 'Permanent Marker', sans-serif;
   text-decoration: none;
   color: black;
   border-radius: 3px;
+}
+
+a.char-name:hover {
+  color: white;
+  box-shadow: 7px 7px black;;
 }
 
 .add-hero {
@@ -133,11 +139,12 @@ a.char-name {
   color: black;
   padding: 0.3em;
   background-image: linear-gradient(#ffe0cc,#ff8533);
-  box-shadow: 3px 3px black;
+  box-shadow: 4px 4px black;
 }
 
 .add-hero:hover {
   color: white;
+  box-shadow: 7px 7px black;
 }
 
 .char-index-box {
@@ -227,4 +234,24 @@ a.char-name {
 
 .button:hover {
   background-image: linear-gradient(#ffb3e6, #ff66cc);
+}
+
+.char-bio {
+  background-image: linear-gradient(white, #ffb3e6);
+  font-family: 'Oswald',sans-serif;
+  box-shadow: 5px 5px black;
+  border-radius: 3px;
+  max-width: 30%;
+  float: left;
+  z-index: 1;
+}
+
+.char-powers {
+  background-image: linear-gradient(#ffb3e6, #ff66cc);
+  font-family: 'Bangers',sans-serif;
+  box-shadow: 5px 5px black;
+  border-radius: 3px;
+  width: 40%;
+  float: left;
+  margin: 1em;
 }
