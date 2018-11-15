@@ -30,7 +30,7 @@ module ApiCommunicator
     response_thing = RestClient.get(query)
     parsed_response = JSON.parse(response_thing)
     new_hero_hash[:api_id] = parsed_response["results"]["id"]
-    new_hero_hash[:image_url] = parsed_response["results"]["image"]["screen_url"]
+    new_hero_hash[:image_url] = parsed_response["results"]["image"]["original_url"]
     new_hero_hash[:description] = parsed_response["results"]["deck"]
     new_hero_hash[:name] = parsed_response["results"]["name"]
     created_hero = Hero.create(new_hero_hash)

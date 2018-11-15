@@ -16,21 +16,19 @@
 
   <% @heros.each do |h| %>
   <div class="char-index-box">
-    <h3><%= link_to h.name, h %></h3>
-    <a href="<%= h %>">
-      <img src="<%= h.image_url %>" style="width: 80%">
-
-    </a>
-
-
-    <%# link_to image_tag("#{h.image_url}"), h %>
+    <h3><%= link_to "#{h.name}...", h, class: "char-name" %></h3>
 
     <!-- If team is stored for adding heros -->
     <% if @team && @team.heros.count < 5 %>
       <% unless @team.heros.include?(h) %>
-        <%= link_to "Add to #{@team.roster_name}" , add_hero_to_team_path(@team.user, @team, h.id), method: :post %>
+        <%= link_to "Add to #{@team.roster_name}" , add_hero_to_team_path(@team.user, @team, h.id), method: :post, class: "add-hero" %>
       <% end %>
     <% end %>
+
+    <a href="<%= h %>">
+      <img src="<%= h.image_url %>">
+    </a>
+
   </div>
   <% end %>
 

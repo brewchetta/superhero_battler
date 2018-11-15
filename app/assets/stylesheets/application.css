@@ -101,20 +101,54 @@ footer {
 
 .char-index-box > a > img {
   display: inline-block;
-  width: 150%;
+  width: 100%;
+  position: relative;
+  top: -70px;
+
 }
 
-.char-index-box > a {
-  overflow: hidden;
+a.char-name {
+  position: relative;
+  float: left;
+  left: 20px;
+  z-index: 1;
+  background-image: linear-gradient(#ffb3b3,#ff3333);
+  padding: 0.3em;
+  box-shadow: 5px 5px black;
+  font-family: 'Permanent Marker', sans-serif;
+  text-decoration: none;
+  color: black;
+  border-radius: 3px;
+}
+
+.add-hero {
+  z-index: 2;
+  position: relative;
+  top: -10px;
+  right: 20px;
+  float:right;
+  background: green;
+  font-family: "Permanent Marker",sans-serif;
+  text-decoration: none;
+  color: black;
+  padding: 0.3em;
+  background-image: linear-gradient(#ffe0cc,#ff8533);
+  box-shadow: 3px 3px black;
+}
+
+.add-hero:hover {
+  color: white;
 }
 
 .char-index-box {
+  max-height: 400px;
   display: inline-block;
   width: 32%;
   border: solid black 2px;
   text-align: center;
   margin: 1px;
   background-color: black;
+  overflow: hidden;
 }
 
 .title {
