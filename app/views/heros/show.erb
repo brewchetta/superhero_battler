@@ -20,12 +20,9 @@
 <div class="" style="background: #ff8c1a;border-bottom: 5px solid black; border-top: 5px solid black;">
 
 <% if @teams.count > 0 %>
-  <p>Currently part of:</p>
+  <p class = "subtitle">Current member of <%= @teams.count %> team(s)</p>
 <% end %>
 
-<% @teams.each do |t| %>
-  <p><%= t.roster_name %></p>
-<% end %>
 
 <!-- Add hero to team if team exists / hero exists -->
 <% if @team && !@team.heros.include?(@hero) && @team.heros.count < 5 %>
