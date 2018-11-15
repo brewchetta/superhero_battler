@@ -32,7 +32,6 @@ class HerosController < ApplicationController
     @results.each do |result|
       flash[:array] << result
     end
-    byebug
     redirect_to hero_search_results_path
     #submit button from index hits her
   end
