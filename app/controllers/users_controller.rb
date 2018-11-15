@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :find_teams, only: [:show]
 
   def index
+    session.delete(:current_team_id)
     @users = User.all
   end
 
