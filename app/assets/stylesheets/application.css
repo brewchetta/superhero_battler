@@ -101,7 +101,11 @@ footer {
 
 .char-index-box > a > img {
   display: inline-block;
-  width: 100%;
+  width: 150%;
+}
+
+.char-index-box > a {
+  overflow: hidden;
 }
 
 .char-index-box {

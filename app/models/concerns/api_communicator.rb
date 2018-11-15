@@ -12,7 +12,7 @@ module ApiCommunicator
     results_array = parsed_response["results"]
     results_array.each do |result|
       new_hero_hash[:api_id] = result["id"]
-      new_hero_hash[:image_url] = result["image"]["screen_url"]
+      new_hero_hash[:image_url] = result["image"]["original_url"]
       # new_hero_hash[:description] = result["deck"]
       # new_hero_hash[:api_url] = result["api_detail_url"]
       new_hero_hash[:name] = result["name"]
