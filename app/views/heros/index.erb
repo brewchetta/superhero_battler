@@ -39,7 +39,9 @@
 
   </div>
   <% end %>
+  <div class="kam-links">
   <%= link_to_next_page @heros, 'Next Page' %>
+  </div>
 
   <% if flash[:array] %>
     <% flash[:array].each do |result| %>
