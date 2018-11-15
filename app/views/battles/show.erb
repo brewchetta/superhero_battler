@@ -4,38 +4,47 @@
 <script>
 
 $(document).ready(function(){
-  $(".rosters, .button").fadeOut(1).delay(5000).fadeIn(500);
+  $(".rosters, .button").fadeOut(1).delay(6500).fadeIn(500);
 });
 
+// Change color on P2 win
 $(document).ready(function(){
-  $('.duel').each(function(){
-    if $(this).
-    $(this).css('background','green')
+  $('.duel:contains("WAS")').each(function(){
+    $(this).css('color','blue');
+    $(this).css('border','solid 4px blue')
+  });
+});
+
+//Change color on tie
+$(document).ready(function(){
+  $('.duel:contains("tied")').each(function(){
+    $(this).css('color','grey');
+    $(this).css('border','solid 4px grey')
   });
 });
 
 $(document).ready(function(){
-    $(".duel1").fadeOut(1).delay(1000).fadeIn(1000);
+    $(".duel1").fadeOut(1).delay(1000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $(".duel2").fadeOut(1).delay(1500).fadeIn(1000);
+    $(".duel2").fadeOut(1).delay(2000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $(".duel3").fadeOut(1).delay(2000).fadeIn(1000);
+    $(".duel3").fadeOut(1).delay(3000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $(".duel4").fadeOut(1).delay(2500).fadeIn(1000);
+    $(".duel4").fadeOut(1).delay(4000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $(".duel5").fadeOut(1).delay(3000).fadeIn(1000);
+    $(".duel5").fadeOut(1).delay(5000).fadeIn(500);
 });
 
 $(document).ready(function(){
-    $(".winner").delay(3500).fadeIn(1000);
+    $(".winner").delay(6000).fadeIn(1000);
 });
 
 </script>
@@ -106,4 +115,4 @@ $(document).ready(function(){
 
 <br>
 
-<%= link_to "Fight these Heroes", battle_fight_path, class: "button" %>
+<%= link_to "Fight!", battle_fight_path, class: "button" %>

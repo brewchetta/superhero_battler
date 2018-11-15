@@ -181,6 +181,7 @@ a.char-name:hover {
   box-shadow: 5px 5px black;
   margin: 0.5em;
   display: inline-block;
+  min-height: 1em;
 }
 
 .link-generic {
