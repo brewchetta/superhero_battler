@@ -3,8 +3,6 @@ class HerosController < ApplicationController
   before_action :find_teams, only: [:show]
   before_action :current_team #For adding heros to current team (if not full)
 
-  validates :api_id, uniqueness: true
-
   def index
     @heros = Hero.all
   end
