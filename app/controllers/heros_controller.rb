@@ -4,7 +4,7 @@ class HerosController < ApplicationController
   before_action :current_team #For adding heros to current team (if not full)
 
   def index
-    @heros = Hero.all
+    @heros = Hero.order(:name).page params[:page]
   end
 
 
