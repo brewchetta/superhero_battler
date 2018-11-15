@@ -7,19 +7,13 @@ class BattlesController < ApplicationController
     @battle.name = "#{@team1.roster_name} vs. #{@team2.roster_name}"
 
   end
-  #show will load all of the winning data in hidden divs
-  #js will show the winning data onClicks
-  #first step is displaying full info from fight
 
-
-
-    #@score_hash = {@team1 => {:winner => [], :loser => []}, @team2 => {:winner => [], :loser => []}}
   def team_fight
-    @score_hash = @battle.fight
-    @winner = @battle.winner
-    flash[:winner] = @score_hash.max_by{|team, score| score[:winner].size }[0].roster_name
-    flash[:win_powers]
-    byebug
+    @battle_array = @battle.winner[1]
+    @result = @battle.winner[0]
+    flash[:duels] = []
+    flash[:winner] = @result
+    @battle_array.each {|duel| flash[:duels] << duel}
     redirect_to @battle
   end
 
