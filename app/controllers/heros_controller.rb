@@ -40,14 +40,18 @@ class HerosController < ApplicationController
   # From team show page, adds hero to that team
   def add_to_team
     session[:current_team_id] = Team.find_by(id: params[:id]).id
-
     redirect_to heros_path
   end
 
   # Finds new hero from comic vine
   def add_hero_from_cv
     @hero = Hero.new_from_api(params[:api_id])
-    redirect_to @hero
+    if @hero.valid?
+      redirect_to @hero
+    else
+      flash[:errors] = @hero.errors.full_messages
+      redirect_to heros_path
+    end
   end
 
   def edit

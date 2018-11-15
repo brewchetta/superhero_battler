@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :find_teams, only: [:show]
 
+
   def index
     session.delete(:current_team_id)
     @users = User.all
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+      flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end

@@ -1,5 +1,14 @@
 <h1 class="title">Create a New User</h1>
 
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <ul>
+        <li class = "edit-user"><%= error %>!!</li>
+      </ul>
+    <% end %>
+  <% end %>
+
+
 <div class="edit-user">
 
 <%= render "form" %>

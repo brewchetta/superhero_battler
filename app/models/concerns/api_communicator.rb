@@ -33,7 +33,7 @@ module ApiCommunicator
     new_hero_hash[:image_url] = parsed_response["results"]["image"]["original_url"]
     new_hero_hash[:description] = parsed_response["results"]["deck"]
     new_hero_hash[:name] = parsed_response["results"]["name"]
-    created_hero = Hero.create(new_hero_hash)
+    created_hero = Hero.new(new_hero_hash)
     parsed_response["results"]["powers"].each do |power|
       hero_pow = Power.find_by(name: "#{power["name"]}")
       created_hero.powers << hero_pow

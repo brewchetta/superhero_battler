@@ -1,7 +1,15 @@
 <div style="">
   <h1 class="title">... Heroes!</h1>
 </div>
-
+  <div>
+    <ul>
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+      <li class= "subtitle"><%= error %></li>
+    </ul>
+        <% end %>
+      <% end %>
+  </div>
   <div style="text-align: right; width: 99%;">
     <h2 class="subtitle">...or Search ComicVine!</h2>
 
