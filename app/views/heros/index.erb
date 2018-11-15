@@ -21,7 +21,7 @@
   </div>
 
   <!-- <div class="link-box"><%= link_to "Add A Hero", new_hero_path %><br> </div><br> -->
-
+  <%= paginate @heros %>
   <% @heros.each do |h| %>
   <div class="char-index-box">
     <h3><%= link_to "#{h.name}...", h, class: "char-name" %></h3>
@@ -39,6 +39,7 @@
 
   </div>
   <% end %>
+  <%= link_to_next_page @heros, 'Next Page' %>
 
   <% if flash[:array] %>
     <% flash[:array].each do |result| %>

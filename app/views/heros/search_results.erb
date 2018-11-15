@@ -3,15 +3,17 @@
   <%= link_to "Try Again", heros_path, class:"brainiac" %>
 <% elsif flash[:array] %>
   <% flash[:array].each do |result| %>
-  <h2> <%= result["name"] %> <h2> <br>
-  <div>
-    <%= image_tag result["image_url"], class: "search-image" %>
+  <div style="display: inline-block; max-width: 19%; margin-top: 2%;">
+    <h2 class="subtitle"> <%= result["name"] %> <h2> <br>
+    <div>
+      <%= image_tag result["image_url"], class: "search-image" %>
+    </div>
+    <div>
+        <%= form_tag '/heros/create_from_api', method: :get do %>
+        <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
+        <%= submit_tag "Add Hero", class: "button"%>
+        <% end %>
+    </div>
   </div>
-  <div>
-      <%= form_tag '/heros/create_from_api', method: :get do %>
-      <%= hidden_field_tag "api_id", "#{result["api_id"]}" %>
-      <%= submit_tag "Add Hero", class: "button"%>
-  </div>
-    <% end %>
   <% end %> <br>
 <% end %>
