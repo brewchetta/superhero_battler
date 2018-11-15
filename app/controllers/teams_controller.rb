@@ -61,7 +61,7 @@ class TeamsController < ApplicationController
   def add_to_team
     @team.heros << Hero.find_by(id: params[:hero_id])
 
-    redirect_to user_team_path(@user, @team)
+    redirect_to user_path(@user)
   end
 
 

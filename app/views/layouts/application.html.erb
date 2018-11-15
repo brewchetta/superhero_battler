@@ -50,7 +50,7 @@
           <p style="margin:0"><%= link_to "Users", users_path %> | <%= link_to "Hero(e)s", heros_path %> | <%= link_to "Powers", powers_path %></p>
         </div>
 
-        <!-- The login/logout space -->
+        <!-- Login/login -->
         <div class="h-right">
           <% if !session[:user_id] %>
 
@@ -67,7 +67,7 @@
           <% else %>
 
           <!-- If logged in -->
-            <%= link_to User.find_by(id: session[:user_id]).name, User.find_by(id: session[:user_id]), class: "link-to" %>
+            <%= link_to "#{User.find_by(id: session[:user_id]).name}'s Profile", User.find_by(id: session[:user_id]), class: "link-to" %>
             <p style="margin-block-start: 0"> | </p>
             <%= link_to "Logout...", sessions_path, method: :delete %>
 

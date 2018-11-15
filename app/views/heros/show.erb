@@ -24,7 +24,7 @@
 <% end %>
 
 <!-- Add hero to team if team exists / hero exists -->
-<% if @team && !@team.heros.include?(@hero) %>
+<% if @team && !@team.heros.include?(@hero) && @team.heros.count < 5 %>
   <div class="">
     <p><%= link_to "Enroll #{@hero.name} in #{@team.roster_name}", add_hero_to_team_path(@team.user, @team, @hero), method: :post %></p>
   </div>
