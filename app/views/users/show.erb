@@ -27,7 +27,11 @@
           <!-- Hero list -->
           <ul>
             <% t.heros.each do |hero| %>
-              <li><%= link_to hero.name, hero %></li>
+              <li><%= link_to hero.name, hero %>
+                <% if session[:user_id] && session[:user_id] == @user.id  %>
+                  <%= link_to "x", remove_from_team_path(@user, t, hero), method: :delete %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
       </div>

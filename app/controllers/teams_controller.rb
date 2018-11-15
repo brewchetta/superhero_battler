@@ -64,6 +64,10 @@ class TeamsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def remove_from_team
+
+  end
+
 
   def destroy
     @team.destroy
