@@ -48,6 +48,11 @@ class BattlesController < ApplicationController
     end
   end
 
+  def destroy
+    @battle.destroy
+    redirect_to battles_path
+  end
+
   private
 
   def find_battle
