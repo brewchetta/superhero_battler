@@ -1,9 +1,7 @@
 class HerosController < ApplicationController
   before_action :find_hero, only: [:show, :edit, :update, :destroy]
   before_action :find_teams, only: [:show]
-
-  #For adding heros to current team (if not full)
-  before_action :current_team
+  before_action :current_team #For adding heros to current team (if not full)
 
   def index
     @heros = Hero.all

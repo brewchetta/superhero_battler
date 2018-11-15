@@ -1,21 +1,34 @@
-<h1><%= @hero.name %></h1> <br>
+
+<h1 style="background: blue;"><%= @hero.name %></h1> <br>
 <div>
   <%= image_tag @hero.image_url %><br>
 </div> <br>
-<div>
+<div style="background: blue;">
   <p><%= @hero.description %><br></p>
 </div>
-<div>
+<div style="background: blue;">
   <h4> Behold the Power of <%= "#{@hero.name}" %></h4>
     <% @hero.powers.each do |power| %>
-  <ul>
-    <li><%= power.name %> </li>
-  </ul>
+    <p><%= power.name %> </p>
+  <% end %>
 </div>
-<% end %>
 
-<!-- TODO Add API stuff -->
+<div class="" style="background: yellow;">
+
+<% if @teams.count > 0 %>
+  <p>Currently part of:</p>
+<% end %>
 
 <% @teams.each do |t| %>
   <p><%= t.roster_name %></p>
 <% end %>
+
+</div>
+
+<div class="">
+
+  <% if @team && @team.heros.include?(@hero) %>
+
+  <% end %>
+
+</div>
