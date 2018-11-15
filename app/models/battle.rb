@@ -22,6 +22,7 @@ class Battle < ApplicationRecord
 
   def winner
     @score_hash = self.fight
+    byebug
     @scores = {self.team1 => 0, self.team2 => 0}
     @score_hash.each do |scoring|
       scoring.each do |winloss|
@@ -37,13 +38,25 @@ class Battle < ApplicationRecord
     end
     @scores
     temp_winner = @scores[self.team1] <=> @scores[self.team2]
-    byebug
       case temp_winner
       when 1
         puts "#{self.team1.roster_name} is the winner"
+        @winner = self.team1.roster_name
+        @loser = self.team2.roster_name
+        @result = [@winner, @loser]
       when -1
         puts "#{self.team2.roster_name} is the winner"
+        @winner = self.team2.roster_name
+        @loser = self.team1.roster_name
+        @result = [@winner, @loser]
+      when 0
+        puts "#{self.team1.roster_name} tied with #{self.team1.roster_name}"
+        @tie1 = self.team1.roster_name
+        @tie2 = self.team2.roster_name
+        @result = {:tiet1 => self.team1.roster_name, :tiet2 => self.team2.roster_name}
       end
+    @result
+    byebug
   end
 
   def fight
@@ -62,14 +75,6 @@ class Battle < ApplicationRecord
         @score_hash << @tie
       end
     end
-    # win_condition = score_hash[@team1][:winner].size <=> score_hash[@team2][:winner].size
-    # if win_condition == 1
-    #   puts "#{@team1.roster_name} is the winner and #{@team2.roster_name} said 'Good Game'"
-    # elsif win_condition == -1
-    #   puts "#{@team2.roster_name} is the winner and #{@team1.roster_name} said 'Good Game'"
-    # else
-    #   puts "The battle was a tie."
-    # end
     @score_hash
   end
 
@@ -99,32 +104,3 @@ class Battle < ApplicationRecord
   end
 
 end
-
-#hero_fight needs to return a winner and a lp
-
-# {
-#   {
-#     team1winners =>
-#     [
-#       {name => power},
-#       {name => power}
-#     ],
-#     team1losers =>
-#     [
-#       {name => power},
-#       {name => power}
-#     ]
-#   },
-#   {
-#     team2winners =>
-#     [
-#       {name => power},
-#       {name => power},
-#     ],
-#     team2losers =>
-#     [
-#       {name => power},
-#       {name => power}
-#     ]
-#   }
-# }
