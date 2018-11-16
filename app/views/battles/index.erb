@@ -25,6 +25,7 @@
   <section class='battle-tab'>
     <h2 class="subtitle"><%= battle.name %></h2> <br>
     <%= link_to "...rematch?", "/battles/#{battle.id}/fight", class: "button", style: "padding: 0.5em; text-decoration: none;" %>
+    <%= link_to "...or make peace.", battle, method: :delete, class: "button", style: "padding: 0.5em; text-decoration: none;" %>
   </section>
 
 <% end %>
