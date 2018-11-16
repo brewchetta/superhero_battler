@@ -41,7 +41,7 @@ class BattlesController < ApplicationController
     @battle = Battle.create(battle_params)
     t1 = @battle.team1
     t2 = @battle.team2
-    if @battle.team1.full? && @battle.team2.full?
+    if t1 && t2 && @battle.team1.full? && @battle.team2.full?
       @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
       @battle.save
 

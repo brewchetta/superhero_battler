@@ -3,6 +3,9 @@ class Battle < ApplicationRecord
 
   attr_accessor :team1, :team2, :winner2, :winner1, :scores_hash, :winner
 
+  validates :team_id1, presence: true
+  validates :team_id2, presence: true
+
   def full_team
     team1 = self.team1
     team2 = self.team2

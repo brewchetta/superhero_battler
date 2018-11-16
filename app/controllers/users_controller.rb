@@ -59,8 +59,8 @@ class UsersController < ApplicationController
     session.delete(:user_id)
     my_battles = @teams.map {|team| Battle.find_by(team_id1: team.id)}
     user_battles = @teams.map {|team| Battle.find_by(team_id2: team.id)}
-    my_battles.each {|battle| battle.destroy}
-    user_battles.each {|battle| battle.destroy}
+    my_battles.each {|battle| battle.destroy if battle}
+    user_battles.each {|battle| battle.destroy if battle}
 
     @teams.each {|team| team.destroy}
     @user.destroy
