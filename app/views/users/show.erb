@@ -19,7 +19,11 @@
       <% @teams.each do |t| %>
       <div class="user-team">
         <p style="color:black;"><span style='font-size:1.5em; text-decoration: underline;'><%= t.roster_name %></span>
+<<<<<<< HEAD
           <% if session[:user_id] && session[:user_id] == @user.id  %>:<%= link_to "Add Hero", add_hero_path(@user, t), method: :get %>:<%= link_to "X", user_team_path(t), method: :delete %></p>
+=======
+          <% if session[:user_id] && session[:user_id] == @user.id  %>:<%= link_to "Add Hero", add_hero_path(@user, t), method: :get %>:<%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
+>>>>>>> 4755aec22ece3e14f6f24149ce16d78448eebc00
           <% end %>
 
           <!-- Hero list -->
