@@ -299,9 +299,18 @@ a.char-name:hover {
   display: inline-block;
 }
 
+.rosters {
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
 .duel {
   font-size: 1em;
-  background:black;
+  background-color: #1a1a1a;
+  background-image: url('http://www.clker.com/cliparts/i/j/a/T/d/v/bang-hi.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
   color:red;
   display:inline-block;
   margin:1em;
@@ -314,6 +323,7 @@ a.char-name:hover {
   padding: 0.5em;
   display: none;
   letter-spacing: 2px;
+  overflow: visible;
 }
 
 .hero-image {
@@ -380,4 +390,17 @@ a.char-name:hover {
   box-shadow: 3px 3px black;
   border: none;
   padding: 0.4em; text-decoration: none;
+}
+
+.team1 > h2 {
+  color: red;
+}
+
+.team2 > h2 {
+  color: blue;
+}
+
+.rematch {
+  float: left;
+  width: 100%;
 }
