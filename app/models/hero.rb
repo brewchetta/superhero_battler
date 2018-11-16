@@ -1,5 +1,5 @@
 class Hero < ApplicationRecord
-  paginates_per 9
+  paginates_per 8
   has_many :heros_teams
   has_many :teams, through: :heros_teams
 

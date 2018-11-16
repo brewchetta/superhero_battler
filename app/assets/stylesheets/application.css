@@ -96,10 +96,10 @@ footer {
 .main {
   background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/comic-book-background-city-11.jpg');
   background-size: cover;
+  background-attachment: fixed;
   text-align: center;
   min-height: 790px;
   width: 100%;
-  overflow: scroll;
 }
 
 .char-index-box > a > img {
@@ -113,13 +113,14 @@ footer {
 a.char-name {
   position: relative;
   float: left;
-  left: 20px;
+  left: 10px;
   z-index: 1;
   background-image: url('https://us.123rf.com/450wm/phyzick/phyzick1707/phyzick170700010/81477767-old-style-comic-book-dotted-distressed-abstract-halftone-layout-pop-art-retro-graphic-style-page-bac.jpg?ver=6');
   background-size: cover;
   padding: 0.3em;
   box-shadow: 5px 5px black;
   font-family: 'Permanent Marker', sans-serif;
+  font-size: 0.9em;
   text-decoration: none;
   color: black;
   border-radius: 3px;
@@ -131,10 +132,11 @@ a.char-name:hover {
 }
 
 .add-hero {
+  font-size: 0.8em;
   z-index: 2;
   position: relative;
-  top: -10px;
-  right: 20px;
+  top: 2em;
+  right: 0.5em;
   float:right;
   background: green;
   font-family: "Permanent Marker",sans-serif;
@@ -151,9 +153,9 @@ a.char-name:hover {
 }
 
 .char-index-box {
-  max-height: 400px;
+  max-height: 300px;
   display: inline-block;
-  width: 32%;
+  width: 24%;
   border: solid black 2px;
   text-align: center;
   margin: 1px;
@@ -356,6 +358,10 @@ a.char-name:hover {
   font-family: "Press Start 2P", sans-serif;
 }
 
+.pagination {
+  margin-bottom: 1em;
+}
+
 .pagination a {
   font-family: 'Permanent Marker', sans-serif;
   font-size: 1.2em;
@@ -365,14 +371,15 @@ a.char-name:hover {
   background-image: linear-gradient(white, #ffb3e6);
   box-shadow: 3px 3px black;
   border: none;
-  padding: 0.4em; text-decoration: none;
+  padding: 0.3em; text-decoration: none;
 }
 
 .pagination span.page.current {
   font-family: 'Permanent Marker', sans-serif;
   font-size: 1.2em;
   margin: 0.5em;
-  padding: 0.4em; text-decoration: none;
+  padding: 0.3em;
+  text-decoration: none;
   color: black;
   border-radius: 2px;
   background-image: linear-gradient(white, grey);

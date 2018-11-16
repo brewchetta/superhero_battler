@@ -30,7 +30,6 @@ var bgs = ["https://cdnb.artstation.com/p/assets/images/images/009/963/699/large
 "https://res.cloudinary.com/rebelwalls/image/upload/b_black,c_fit,fl_progressive,q_auto,w_1333/v1428564559/article/R10621_image1",
 "http://static2.businessinsider.com/image/558dbb81371d22a10e8b4d72-1326-575/screen-shot-2015-06-26-at-4.51.00-pm.png",
 "https://static3.srcdn.com/wordpress/wp-content/uploads/2016/09/Batcave.jpg",
-"https://vignette.wikia.nocookie.net/marvel_dc/images/3/3e/WatchtowerMainWing.jpg/revision/latest?cb=20120311192335",
 "https://vignette.wikia.nocookie.net/marvel_dc/images/9/9e/Hall_of_Doom_0001.jpg/revision/latest?cb=20160326101323",
 "https://fsmedia.imgix.net/9e/57/54/de/ea67/41a0/bea8/0ee380f86a08/ego-the-living-planet-in-marvel-comics.jpeg?dpr=2&auto=format%2Ccompress&w=650"
 ];
