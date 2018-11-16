@@ -83,7 +83,7 @@ $(document).ready(function(){
 <div class="rosters">
 
   <!-- Roster 1 -->
-  <div class="roster">
+  <div class="roster team1">
     <h2><%= @battle.team1.roster_name %></h2>
     <% @battle.team1.heros.each do |hero| %>
     <p><%= hero.name %></p>
@@ -98,7 +98,7 @@ $(document).ready(function(){
   <p style="display:inline-block; font-family: 'Permanent Marker', sans-serif; font-size: 2em; background: black; color:white;">vs</p>
 
   <!-- Roster 2 -->
-  <div class="roster">
+  <div class="roster team2">
     <h2><%= @battle.team2.roster_name %></h2>
     <% @battle.team2.heros.each do |hero| %>
         <p><%= hero.name %></p>
@@ -115,4 +115,6 @@ $(document).ready(function(){
 
 <br>
 
-<%= link_to "Fight!", battle_fight_path, class: "button" %>
+<div class="rematch">
+  <%= link_to "Fight!", battle_fight_path, class: "button" %>
+</div>

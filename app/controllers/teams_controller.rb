@@ -61,7 +61,12 @@ class TeamsController < ApplicationController
   def add_to_team
     @team.heros << Hero.find_by(id: params[:hero_id])
 
-    redirect_to user_path(@user)
+    # Redirects to user page if team full, else to heros page
+    if @team.heros.size < 5
+      redirect_to heros_path
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   def remove_from_team
