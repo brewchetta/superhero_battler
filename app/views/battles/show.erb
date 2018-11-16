@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 // Change color on P2 win
 $(document).ready(function(){
-  $('.duel:contains("WAS")').each(function(){
+  $('.duel:contains("has")').each(function(){
     $(this).css('color','blue');
     $(this).css('border','solid 4px blue')
   });
@@ -73,7 +73,7 @@ $(document).ready(function(){
 
 <!-- Fight result -->
 <article>
-  <h3 class="winner duel" style="font-size: 1.5em"><%= flash["winner"]  %> </h3>
+  <h5 class="winner duel" style="font-size: 1.5em"><%= flash["winner"]  %> </h5>
 </article>
 <br>
 <% end %>

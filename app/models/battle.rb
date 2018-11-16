@@ -53,7 +53,7 @@ class Battle < ApplicationRecord
         fight_result = "#{self.team1.roster_name} is the winner and #{self.team2.roster_name} lost!"
       when -1
         puts "#{self.team2.roster_name} is the winner"
-        fight_result = "#{self.team2.roster_name} is the winner and #{self.team1.roster_name} lost!"
+        fight_result = "#{self.team2.roster_name} has won the battle and #{self.team1.roster_name} lost!"
       when 0
         puts "#{self.team1.roster_name} tied with #{self.team1.roster_name}"
         fight_result = "#{self.team1.roster_name} tied with #{self.team2.roster_name}"
@@ -77,7 +77,7 @@ class Battle < ApplicationRecord
         puts "#{hero1.name} beat #{hero2.name}"
       when -1
         @winner2 += 1
-        duel_result = "#{hero1.name} WAS beat by #{hero2.name} with the power of #{pow2.name}"
+        duel_result = "#{hero1.name} has lost to #{hero2.name}'s' power of #{pow2.name}"
         puts "#{hero1.name} WAS beat #{hero2.name}"
       else
         puts "#{hero1.name} tied with #{hero2.name}"
