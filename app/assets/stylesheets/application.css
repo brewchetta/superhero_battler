@@ -34,6 +34,7 @@ header {
 }
 
 header > .h-left {
+  font-size: 1.2em;
   font-family: 'Bangers', sans-serif;
   width: 30%;
   text-align: left;
@@ -53,6 +54,7 @@ header > .h-right {
 }
 
 header > .h-right > * {
+  font-size: 1.2em;
   font-family: 'Bangers', sans-serif;
   color: white;
   display: inline-flex;
@@ -308,10 +310,7 @@ a.char-name:hover {
 
 .duel {
   font-size: 1em;
-  background-color: #1a1a1a;
-  background-image: url('http://www.clker.com/cliparts/i/j/a/T/d/v/bang-hi.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
+  background-color: black;
   color:red;
   display:inline-block;
   margin:1em;
