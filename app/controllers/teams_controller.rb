@@ -65,6 +65,7 @@ class TeamsController < ApplicationController
   end
 
   def remove_from_team
+    # Team.find_by(id: params[:id]).destroy
     HerosTeam.find_by(hero_id: params[:hero_id], team_id: params[:team_id]).destroy
 
     redirect_to user_path(@user)
@@ -74,6 +75,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     session[:current_team_id]
+    Battle.all.select{|b| b.name == nil}.each{|b| b.destroy}
 
     redirect_to user_path(@user)
   end

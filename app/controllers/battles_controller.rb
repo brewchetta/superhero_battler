@@ -43,7 +43,7 @@ class BattlesController < ApplicationController
     if @battle.team1.full? && @battle.team2.full?
       @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
       @battle.save
-      byebug
+      
       redirect_to @battle
     else
       flash[:error] = "Teams must be full"

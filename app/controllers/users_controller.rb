@@ -58,6 +58,8 @@ class UsersController < ApplicationController
   def destroy
     session.delete(:user_id)
     @user.destroy
+    Battle.all.select{|b| b.name == nil}.each{|b| b.destroy}
+
     redirect_to users_path
   end
 

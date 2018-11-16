@@ -333,6 +333,15 @@ a.char-name:hover {
 }
 
 .brainiac {
+  font-size: 1em;
+  background:black;
+  color:red;
+  margin:1em;
+  box-shadow:5px 5px black;
+  border-radius:3px;
+  background-position: right;
+  border: 2px red solid;
+  padding: 0.5em;
   font-family: "Press Start 2P", sans-serif;
 }
 
@@ -343,6 +352,17 @@ a.char-name:hover {
   color: black;
   border-radius: 2px;
   background-image: linear-gradient(white, #ffb3e6);
+  box-shadow: 3px 3px black;
+  border: none;
+}
+
+.pagination span.page.current {
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 1.2em;
+  margin: 0.5em;
+  color: black;
+  border-radius: 2px;
+  background-image: linear-gradient(grey, black);
   box-shadow: 3px 3px black;
   border: none;
 }

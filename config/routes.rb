@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete "sessions/login", to: "sessions#destroy"
 
   # Remove hero from team path
-  delete "users/:user_id/:team_id/:hero_id", to: 'teams#remove_from_team', as: 'remove_from_team'
+  delete "users/:user_id/teams/:team_id/hero/:hero_id", to: 'teams#remove_from_team', as: 'remove_from_team'
 
   resources :battles
   resources :powers
