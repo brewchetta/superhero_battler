@@ -8,13 +8,14 @@ class BattlesController < ApplicationController
     @battle.name = "#{@team1.roster_name} vs. #{@team2.roster_name}"
   end
 
+  # @result = @battle.winner[0]
   def team_fight
     if @battle.team1.full? && @battle.team2.full?
-      @battle_array = @battle.winner[1]
-      @result = @battle.winner[0]
+      battle_array = @battle.fight
+      byebug
       flash[:duels] = []
-      flash[:winner] = @result
-      @battle_array.each {|duel| flash[:duels] << duel}
+      flash[:winner] = battle_array[5]
+      battle_array.each {|duel| flash[:duels] << duel}
       redirect_to @battle
     else
       flash[:message] = "Teams need to be full to battle"
