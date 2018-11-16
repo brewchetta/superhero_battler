@@ -307,10 +307,7 @@ a.char-name:hover {
 
 .duel {
   font-size: 1em;
-  background-color: #1a1a1a;
-  background-image: url('http://www.clker.com/cliparts/i/j/a/T/d/v/bang-hi.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
+  background-color: black;
   color:red;
   display:inline-block;
   margin:1em;

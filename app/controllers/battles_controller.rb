@@ -12,7 +12,6 @@ class BattlesController < ApplicationController
   def team_fight
     if @battle.team1.full? && @battle.team2.full?
       battle_array = @battle.fight
-      byebug
       flash[:duels] = []
       flash[:winner] = battle_array[5]
       battle_array.each {|duel| flash[:duels] << duel}
