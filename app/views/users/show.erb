@@ -12,62 +12,66 @@
 
 
 <!-- Teamlist divs -->
-  <div class="user-team-list">
+<div class="user-team-list">
 
-    <h2 style="border-bottom: dotted black 3px; border-top: dotted black 3px; font-family: 'Bangers', sans-serif;">Teams</h2>
+  <h2 style="border-bottom: dotted black 3px; border-top: dotted black 3px; font-family: 'Bangers', sans-serif;">Teams</h2>
 
-      <% @teams.each do |t| %>
-      <div class="user-team">
-        <p style="color:black;"><span style='font-size:1.5em; text-decoration: underline;'><%= t.roster_name %></span>
-          <% if session[:user_id] && session[:user_id] == @user.id  %>:
+    <% @teams.each do |t| %>
+    <div class="user-team">
+      <p style="color:black;"><span style='font-size:1.5em; text-decoration: underline;'><%= t.roster_name %></span>
+        <% if session[:user_id] && session[:user_id] == @user.id  %>:
 
-            <% if t.heros.count < 5 %>
-              <%= link_to "Add Hero", add_hero_path(@user, t), method: :get %>:
-            <% end %>
-
-            <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
+          <% if t.heros.count < 5 %>
+            <%= link_to "Add Hero", add_hero_path(@user, t), method: :get %>:
           <% end %>
 
-          <!-- Hero list -->
-          <ul>
-            <% t.heros.each do |hero| %>
-              <li><%= link_to hero.name, hero %>
-                <% if session[:user_id] && session[:user_id] == @user.id  %>
-                  <%= link_to "x", remove_from_team_path(@user, t, hero), method: :delete %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-      </div>
-      <% end %><br>
-
-
-      <div class="user-battles">
-        <% if @battles != nil %>
-          <% @battles.each do |battle| %>
-            <section>
-              <%= link_to "#{battle.name}", "/battles/#{battle.id}/fight" if battle%>
-            </section>
-          <% end %>
+          <%= link_to "Remove", user_team_path(@user,t), method: :delete %></p>
         <% end %>
-      </div>
 
-  </div>
+        <!-- Hero list -->
+        <ul>
+          <% t.heros.each do |hero| %>
+            <li><%= link_to hero.name, hero %>
+              <% if session[:user_id] && session[:user_id] == @user.id  %>
+                <%= link_to "x", remove_from_team_path(@user, t, hero), method: :delete %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    <% end %><br>
 
-  <!-- Add team area if logged in -->
-  <% if @user.id == session[:user_id] %>
-  <div style="float:left; display: inline-block;">
 
-    <h1 class="title" style="font-size: 2em;">... or Build A New Team!</h1>
-
-    <div class="edit-user">
-      <%= form_for :team, url: user_teams_path(@user), method: :post do |f| %>
-        <%= f.label :roster_name %>
-        <%= f.text_field :roster_name %><br>
-        <%= f.submit class: "edit-user-bt", style: "font-size: 0.4em"%>
-
+    <div class="user-battles">
+      <% if @battles != nil %>
+        <% @battles.each do |battle| %>
+          <section>
+            <%= link_to "#{battle.name}", "/battles/#{battle.id}/fight" if battle%>
+          </section>
+        <% end %>
       <% end %>
     </div>
 
+</div>
+
+<!-- Add team area if logged in -->
+<% if @user.id == session[:user_id] %>
+<div style="float:left; display: inline-block;">
+
+  <h1 class="title" style="font-size: 2em;">... or Build A New Team!</h1>
+
+  <div class="edit-user">
+    <%= form_for :team, url: user_teams_path(@user), method: :post do |f| %>
+      <%= f.label :roster_name %>
+      <%= f.text_field :roster_name %><br>
+      <%= f.submit class: "edit-user-bt", style: "font-size: 0.4em"%>
+
+    <% end %>
   </div>
-  <% end %>
+
+</div>
+<% end %>
+
+<br>
+
+<%= link_to "Battle!", battles_path, class: "char-name", style: "position: absolute; bottom: 10%; left: 75%; font-size: 3em;" %>
