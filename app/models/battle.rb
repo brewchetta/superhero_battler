@@ -81,7 +81,7 @@ class Battle < ApplicationRecord
         @winner = "#{self.team2.roster_name} is the winner and #{self.team1.roster_name} lost!"
       when 0
         puts "#{self.team1.roster_name} tied with #{self.team1.roster_name}"
-        @winner = "#{self.team1.roster_name} tied with #{self.team1.roster_name}"
+        @winner = "#{self.team1.roster_name} tied with #{self.team2.roster_name}"
       end
     @result = [@winner, @battle_array]
   end
