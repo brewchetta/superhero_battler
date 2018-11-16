@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-  before_action :find_teams, only: [:show]
+  before_action :find_teams, only: [:show, :destroy]
 
 
   def index
@@ -57,9 +57,10 @@ class UsersController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    @battles = @teams.map {|team| Battle.find_by(team_id1: team.id)}
+    @battles.each {|battle| battle.destroy}
+    @teams.each {|team| team.destroy}
     @user.destroy
-    Battle.all.select{|b| b.name == nil}.each{|b| b.destroy}
-
     redirect_to users_path
   end
 

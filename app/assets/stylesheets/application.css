@@ -354,15 +354,29 @@ a.char-name:hover {
   background-image: linear-gradient(white, #ffb3e6);
   box-shadow: 3px 3px black;
   border: none;
+  padding: 0.4em; text-decoration: none;
 }
 
 .pagination span.page.current {
   font-family: 'Permanent Marker', sans-serif;
   font-size: 1.2em;
   margin: 0.5em;
+  padding: 0.4em; text-decoration: none;
   color: black;
   border-radius: 2px;
-  background-image: linear-gradient(grey, black);
+  background-image: linear-gradient(white, grey);
   box-shadow: 3px 3px black;
   border: none;
+}
+
+.kam-links a {
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 1.2em;
+  margin: 0.5em;
+  color: black;
+  border-radius: 2px;
+  background-image: linear-gradient(white, #ffb3e6);
+  box-shadow: 3px 3px black;
+  border: none;
+  padding: 0.4em; text-decoration: none;
 }
