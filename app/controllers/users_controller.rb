@@ -57,8 +57,11 @@ class UsersController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    @battles = @teams.map {|team| Battle.find_by(team_id1: team.id)}
-    @battles.each {|battle| battle.destroy}
+    my_battles = @teams.map {|team| Battle.find_by(team_id1: team.id)}
+    user_battles = @teams.map {|team| Battle.find_by(team_id2: team.id)}
+    my_battles.each {|battle| battle.destroy}
+    user_battles.each {|battle| battle.destroy}
+
     @teams.each {|team| team.destroy}
     @user.destroy
     redirect_to users_path
