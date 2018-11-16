@@ -34,6 +34,7 @@ header {
 }
 
 header > .h-left {
+  font-size: 1.2em;
   font-family: 'Bangers', sans-serif;
   width: 30%;
   text-align: left;
@@ -53,6 +54,7 @@ header > .h-right {
 }
 
 header > .h-right > * {
+  font-size: 1.2em;
   font-family: 'Bangers', sans-serif;
   color: white;
   display: inline-flex;
