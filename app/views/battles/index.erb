@@ -24,10 +24,12 @@
 
 <% @battles.each do |battle| %>
 
-  <section class='battle-tab'>
+  <div class='battle-tab' data-turbolinks="false">
     <h2 class="subtitle"><%= battle.name %></h2> <br>
-    <%= link_to "...rematch?", "/battles/#{battle.id}/fight", class: "button", style: "padding: 0.5em; text-decoration: none;" %>
-    <%= link_to "...or make peace.", battle, method: :delete, class: "button", style: "padding: 0.5em; text-decoration: none;" %>
-  </section>
+    <div data-turbolinks="false", style="display: inline-block;">
+      <%= link_to "...rematch?", "/battles/#{battle.id}/fight", class: "button", style: "padding: 0.5em; text-decoration: none;" %>
+    </div>
+      <%= link_to "...or make peace.", battle, method: :delete, class: "button", style: "padding: 0.5em; text-decoration: none;" %>
+  </div>
 
 <% end %>

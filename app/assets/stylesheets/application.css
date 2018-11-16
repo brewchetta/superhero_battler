@@ -96,6 +96,7 @@ footer {
   background-size: cover;
   text-align: center;
   min-height: 790px;
+  width: 100%;
   overflow: scroll;
 }
 
@@ -403,4 +404,15 @@ a.char-name:hover {
 .rematch {
   float: left;
   width: 100%;
+}
+
+input.button {
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 1.2em;
+  margin: 0.5em;
+  color: black;
+  border-radius: 2px;
+  background-image: linear-gradient(white, #ffb3e6);
+  box-shadow: 3px 3px black;
+  border: none;
 }
