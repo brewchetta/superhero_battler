@@ -1,5 +1,6 @@
 class BattlesController < ApplicationController
   before_action :find_battle, only: [:show, :edit, :update, :team_fight, :destroy]
+  before_action :find_user
 
   def show
     @team1 = @battle.team1
@@ -43,7 +44,7 @@ class BattlesController < ApplicationController
     if @battle.team1.full? && @battle.team2.full?
       @battle.name = "#{t1.roster_name} vs. #{t2.roster_name}"
       @battle.save
-      
+
       redirect_to @battle
     else
       flash[:error] = "Teams must be full"
@@ -60,6 +61,12 @@ class BattlesController < ApplicationController
 
   def find_battle
     @battle = Battle.find_by(id: params[:id])
+  end
+
+  def find_user
+    if session[:user_id]
+      @user = User.find_by(id: session[:user_id])
+    end
   end
 
   def battle_params

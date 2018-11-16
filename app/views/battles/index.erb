@@ -1,24 +1,26 @@
 <h1 class="title">...Battles!</h1>
 
-<div class="button" style="background-image: linear-gradient(#cc0000,#1a1100); display:inline-block;float:left;clear:both;">
+<!-- Start set up fight -->
+<% if @user %><div class="button" style="background-image: linear-gradient(#cc0000,#1a1100); display:inline-block;float:left;clear:both;">
 
   <h3 style="margin-bottom: 0;">Set Up Fight</h3>
 
-<%= form_for @battle do |f| %>
+  <%= form_for @battle do |f| %>
 
-  <%= f.collection_select :team_id1, @teams.select{|team| team.heros.size == 5}, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
+    <%= f.collection_select :team_id1, @teams.select{|team| team.heros.size == 5 && team.user == @user}, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
 
-  <p style="font-family: 'Bangers', sans-serif; font-size: 1.5em; display: inline-block;">vs</p>
+    <p style="font-family: 'Bangers', sans-serif; font-size: 1.5em; display: inline-block;">vs</p>
 
-  <%= f.collection_select :team_id2, @teams.select{|team| team.heros.size == 5}, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
+    <%= f.collection_select :team_id2, @teams.select{|team| team.heros.size == 5 && team.user != @user}, :id, :roster_name, {:include_blank => '...'}, {class: "drop-select"} %>
 
-  <br>
+    <br>
 
-  <%= f.submit "Fight!", class: "button"%>
+    <%= f.submit "Fight!", class: "button"%>
 
-<% end %>
+  <% end %>
 
-</div>
+</div><% end %>
+<!-- End set up fight -->
 
 <% @battles.each do |battle| %>
 
