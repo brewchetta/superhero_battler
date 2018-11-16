@@ -29,9 +29,6 @@ class Battle < ApplicationRecord
     @team2 = Team.find_by(id: self.team_id2)
   end
 
-
-
-
   def fight
     @winner1 = 0
     @winner2 = 0
@@ -85,7 +82,9 @@ class Battle < ApplicationRecord
       end
     duel_result
   end
-end
+
+
+end #class end
 
 
 # def winner
