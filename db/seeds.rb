@@ -15,20 +15,16 @@ Battle.all.each {|item| item.destroy}
 puts "Creating new users ..."
 u1 = User.create(name:"Alex", password: 'password')
 u2 = User.create(name:"Chett", password: 'password')
-u3 = User.create(name:"Wangtron", password: 'password')
 
 puts "Registering new teams ..."
 t1 = Team.new(roster_name: "Alex's Team")
 t2 = Team.new(roster_name: "Chett's Team")
-t3 = Team.new(roster_name: "Wangtron's Team")
 
 u1.teams << t1
 u2.teams << t2
-u3.teams << t3
 
 t1.save
 t2.save
-t3.save
 
 puts "Finding some hero(e)s ..."
 #thor, punisher, wolverine, mr. miracle, violator, venom
